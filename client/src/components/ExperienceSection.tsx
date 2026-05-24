@@ -1,137 +1,117 @@
 /* ============================================================
    DESIGN: Deep Ocean Protocol — Experience Section
-   - Vertical timeline with glowing teal nodes
-   - Glassmorphism cards for each role
-   - Gold accent for current/recent positions
-   - Scroll-triggered animations
    ============================================================ */
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const companyLinks: Record<string, string> = {
-  "Astra Protocol": "https://astraprotocol.com",
-  "Delnorte Terra Vision": "https://delnorte.io",
-
-  "InvoiceMate": "https://invoicemate.io",
-  "Bloctech Solutions": "https://bloctech.io",
-
+  Omnisoft: "https://www.digiportid.com/",
+  "Freelance (Independent)": "https://multxdev.litho.ai/",
+  "Genesis IT Lab": "https://explorer.xrplevm.org/address/0x30C89cfae115d65f309A63f8D18Ad4eC6708F2F9",
 };
 
-const getCompanyLink = (company: string): string => {
-  return companyLinks[company] || "#";
-};
+const getCompanyLink = (company: string): string => companyLinks[company] || "#";
 
 const experiences = [
   {
-    company: "Astra Protocol",
-    role: "Senior Blockchain Developer",
-    period: "Aug 2025 – Mar 2026",
-    location: "Onsite",
+    company: "Omnisoft",
+    role: "Blockchain & Web3 Developer",
+    period: "Sep 2025 – Present",
+    location: "Lahore · Onsite",
     current: true,
     color: "#00D4FF",
     achievements: [
-      "Led architecture of a non-custodial wallet supporting both EVM and Non-EVM (Solana) chains, ensuring zero server-side private key storage.",
-      "Implemented secure client-side mnemonic phrase generation and private key derivation for EVM and Solana wallets using ECDSA.",
-      "Integrated 1inch API for aggregated swap execution across multiple EVM networks and Uniswap for direct DEX access.",
-      "Integrated MoonPay API for fiat-to-crypto on-ramping and CoinMarketCap APIs for real-time pricing data.",
+      "Architected and developed DigiPort — a SaaS-based decentralized KYC platform enabling secure on-chain identity verification, credential management, and compliance automation.",
+      "Designed enterprise-grade RBAC (Role-Based Access Control) workflows for financial institutions, ensuring secure onboarding and permission management.",
+      "Integrated USDT payment infrastructure with Chainlink price feeds for dynamic real-time fiat-equivalent subscription billing.",
+      "Developed and deployed scalable Solidity smart contracts with upgradeable architecture using OpenZeppelin proxy patterns.",
+      "Delivered end-to-end Web3 integration by connecting audited smart contracts with a production-ready React.js / Next.js frontend.",
+      "Built blockchain interoperability and wallet integrations supporting Ethereum, BSC, Polygon, and EVM-compatible ecosystems.",
     ],
-    tags: ["Non-Custodial Wallet", "ECDSA", "1inch API", "Uniswap", "MoonPay", "Solana", "EVM"],
+    tags: ["DigiPort", "SaaS", "KYC", "RBAC", "Chainlink", "USDT", "OpenZeppelin", "Solidity", "React", "Next.js"],
   },
   {
-    company: "Delnorte Terra Vision",
-    role: "Solidity Blockchain Developer",
-    period: "Mar 2025 – Jun 2025",
-    location: "Remote",
-    current: false,
-    color: "#00D4FF",
-    achievements: [
-      "Designed and developed two custom tokens — DTVC and DTV — including HashLock security audit and successful DTVC listing on MEXC exchange.",
-      "Deployed 8–9 Solidity smart contracts to Ethereum Mainnet for CRM infrastructure, ensuring robust and secure solutions.",
-      "Integrated deployed contracts with the frontend application for seamless user interaction.",
-      "Contributed to a government data solution leveraging AI and blockchain for enhanced public sector accountability.",
-    ],
-    tags: ["ERC-20 Tokens", "HashLock Audit", "MEXC Exchange", "Ethereum Mainnet", "CRM Contracts"],
-  },
-
-  {
-    company: "InvoiceMate",
-    role: "Senior Blockchain Developer",
-    period: "Mar 2024 – Feb 2025",
-    location: "Onsite",
+    company: "Freelance (Independent)",
+    role: "Smart Contract Developer",
+    period: "Dec 2025 – May 2026",
+    location: "Remote · Part-time",
     current: false,
     color: "#F4C430",
     achievements: [
-      "Built a decentralized credit protocol with KYI (Know Your Investor) for invoice financing — turning risk-scored invoices into financial instruments.",
-      "Designed and deployed the DEFA governance token for InvoiceMate's lending pools.",
-      "Integrated smart contracts with multi-wallet frontend across BSC, Arbitrum, HAQQ, and IOTA networks.",
-      "Contributed to XperiencePay — a blockchain-integrated e-commerce platform for luxury goods (yachts, private jets, rare art).",
-      "Developed and deployed smart contracts enabling secure transactions, token integration, and governance mechanisms.",
-      "Integrated Uniswap V3 for token swapping across ~10 cryptocurrencies and Chainlink oracles for real-time price feeds.",
+      "Developed MultX — a Lithosphere-based cross-chain bridge supporting asset transfers between Ethereum and BSC.",
+      "Implemented a 2-of-3 multi-signature validator consensus mechanism with unique hash verification.",
+      "Built Lock & Release settlement logic with relayer coordination for trustless cross-chain messaging.",
+      "Delivered production-ready bridge infrastructure alongside ongoing full-time development at Omnisoft.",
     ],
-    tags: ["DeFi Credit Protocol", "DEFA Token", "KYI", "BSC", "Arbitrum", "HAQQ", "IOTA", "Uniswap V3", "Chainlink Oracles"],
+    tags: ["MultX", "Cross-Chain Bridge", "Multi-Sig", "Ethereum", "BSC", "Lithosphere"],
   },
   {
-    company: "Bloctech Solutions",
+    company: "Bahria University — Karachi Incubation Center",
     role: "Blockchain Developer",
-    period: "Mar 2021 – Jan 2024",
-    location: "Onsite",
+    period: "May 2025 – Sep 2025",
+    location: "Karachi · Project-based",
     current: false,
     color: "#00D4FF",
     achievements: [
-      "Developed DApps including staking platforms, NFT marketplaces, and ICOs using Hardhat and Remix IDE.",
-      "Gained hands-on experience with presale, staking, multi-staking, ROI contracts, reflection tokens, stablecoins, and referral systems.",
-      "Deployed across Ethereum and Binance Smart Chain (BSC) EVM-compatible networks.",
-      "Built deep understanding of Solidity, contract security best practices, gas optimization, and upgradability patterns.",
-      "Studied blockchain architecture, consensus mechanisms, financial markets, and cryptographic concepts.",
+      "Built a tamper-proof supply chain tracking dApp on Ethereum for end-to-end product provenance verification.",
+      "Designed on-chain event logging and wallet authentication for transparent stakeholder audit trails.",
+      "Delivered a production-ready DApp for the university incubation program with secure smart contract architecture.",
     ],
-    tags: ["Staking Platforms", "NFT Marketplace", "ICO", "Hardhat", "BSC", "Ethereum", "Solidity", "Gas Optimization", "Cryptography"],
+    tags: ["Supply Chain", "Ethereum", "Provenance", "DApp", "Solidity"],
+  },
+  {
+    company: "Genesis IT Lab",
+    role: "Blockchain & DeFi Developer",
+    period: "Aug 2024 – Apr 2025",
+    location: "Islamabad · Contract",
+    current: false,
+    color: "#00D4FF",
+    achievements: [
+      "Deployed the CFX DeFi ecosystem on XRPL EVM mainnet — 6 smart contracts including CFXToken, CFXSwap, and PairVaultFactory.",
+      "Engineered a factory-cloned vault framework with PET receipt tokens and NAV-driven deposit/redemption logic.",
+      "Built SimpleOracleRouter for accurate XRP-to-CFX exchange rates with on-chain oracle integration.",
+      "Led full-cycle delivery from contract architecture through mainnet deployment and frontend integration.",
+    ],
+    tags: ["CFX", "XRPL EVM", "DeFi", "Vaults", "Oracles", "Mainnet", "Solidity"],
   },
 ];
 
-function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: number }) {
+function ExperienceCard({ exp, index }: { exp: (typeof experiences)[0]; index: number }) {
   const { ref, visible } = useScrollAnimation(0.1);
+  const link = getCompanyLink(exp.company);
 
   return (
     <div
       ref={ref}
-      className="relative pl-12 lg:pl-20 transition-all duration-700"
+      className="relative pl-10 sm:pl-12 lg:pl-20 transition-all duration-700"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateX(0)" : "translateX(-20px)",
         transitionDelay: `${index * 0.1}s`,
       }}
     >
-      {/* Timeline node */}
       <div
         className="absolute left-1.5 lg:left-5 top-6 w-5 h-5 rounded-full flex items-center justify-center"
         style={{
-          background: exp.color === "#F4C430"
-            ? "rgba(244, 196, 48, 0.15)"
-            : "rgba(0, 212, 255, 0.15)",
+          background:
+            exp.color === "#F4C430"
+              ? "rgba(244, 196, 48, 0.15)"
+              : "rgba(0, 212, 255, 0.15)",
           border: `2px solid ${exp.color}`,
           boxShadow: `0 0 12px ${exp.color}60`,
         }}
       >
-        <div
-          className="w-2 h-2 rounded-full"
-          style={{ background: exp.color }}
-        />
+        <div className="w-2 h-2 rounded-full" style={{ background: exp.color }} />
       </div>
 
-      {/* Card */}
-      <div
-        className="glass-card rounded-xl p-6 project-card"
-        style={{
-          borderLeft: `3px solid ${exp.color}40`,
-        }}
-      >
-        <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
-          <div>
-            <div className="flex items-center gap-3 mb-1">
+      <div className="glass-card hero-card-3d rounded-xl p-4 sm:p-6 project-card">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-start sm:justify-between gap-3 mb-4">
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-2 sm:gap-3 mb-1 flex-wrap">
               <a
-                href={getCompanyLink(exp.company)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-lg font-bold text-white hover:text-teal-400 transition-colors"
+                href={link}
+                target={link !== "#" ? "_blank" : undefined}
+                rel={link !== "#" ? "noopener noreferrer" : undefined}
+                className="text-base sm:text-lg font-bold text-white hover:text-teal-400 transition-colors break-words"
                 style={{ fontFamily: "'Syne', sans-serif" }}
               >
                 {exp.company}
@@ -146,7 +126,20 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
                     fontFamily: "'Space Grotesk', sans-serif",
                   }}
                 >
-                  Recent
+                  Current
+                </span>
+              )}
+              {exp.company === "Freelance (Independent)" && (
+                <span
+                  className="text-xs px-2 py-0.5 rounded-full"
+                  style={{
+                    background: "rgba(244, 196, 48, 0.1)",
+                    border: "1px solid rgba(244, 196, 48, 0.3)",
+                    color: "#F4C430",
+                    fontFamily: "'Space Grotesk', sans-serif",
+                  }}
+                >
+                  Parallel · Part-time
                 </span>
               )}
             </div>
@@ -157,7 +150,7 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
               {exp.role}
             </p>
           </div>
-          <div className="text-right">
+          <div className="sm:text-right shrink-0">
             <p
               className="text-sm"
               style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'Space Grotesk', sans-serif" }}
@@ -191,8 +184,10 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
         </ul>
 
         <div className="flex flex-wrap gap-2">
-          {exp.tags.map(tag => (
-            <span key={tag} className="skill-badge">{tag}</span>
+          {exp.tags.map((tag) => (
+            <span key={tag} className="skill-badge">
+              {tag}
+            </span>
           ))}
         </div>
       </div>
@@ -204,10 +199,8 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="py-24 relative overflow-hidden"
-      style={{ background: "#050D1A" }}
+      className="section-pad relative overflow-x-hidden"
     >
-      {/* Background glow */}
       <div
         className="absolute top-0 left-0 w-96 h-96 pointer-events-none"
         style={{
@@ -217,31 +210,28 @@ export default function ExperienceSection() {
       />
 
       <div className="container mx-auto px-6 max-w-7xl">
-        {/* Section header */}
-        <div className="mb-16">
+        <div className="mb-10 md:mb-16">
           <p
             className="text-xs font-semibold mb-3 tracking-widest"
             style={{ color: "#00D4FF", fontFamily: "'Space Grotesk', sans-serif" }}
           >
             CAREER JOURNEY
           </p>
-          <h2 className="section-heading text-4xl lg:text-5xl mb-4">
-            Experience
-          </h2>
+          <h2 className="section-heading text-3xl sm:text-4xl lg:text-5xl mb-4">Experience</h2>
           <div className="teal-line w-16" />
         </div>
 
-        {/* Timeline */}
         <div className="relative">
-          {/* Vertical line */}
           <div
             className="absolute left-4 lg:left-8 top-0 bottom-0 w-px"
-            style={{ background: "linear-gradient(180deg, #00D4FF 0%, rgba(0,212,255,0.1) 100%)" }}
+            style={{
+              background: "linear-gradient(180deg, #00D4FF 0%, rgba(0,212,255,0.1) 100%)",
+            }}
           />
 
           <div className="space-y-8">
             {experiences.map((exp, i) => (
-              <ExperienceCard key={i} exp={exp} index={i} />
+              <ExperienceCard key={exp.company} exp={exp} index={i} />
             ))}
           </div>
         </div>

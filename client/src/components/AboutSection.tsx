@@ -1,37 +1,70 @@
 /* ============================================================
    DESIGN: Deep Ocean Protocol — About Section
-   - Asymmetric two-column layout
-   - Glassmorphism card with about-visual image
-   - Key achievements with gold accent
-   - Scroll-triggered animations
    ============================================================ */
-import { Shield, Zap, Code2, Award } from "lucide-react";
+import { Shield, Layers, GitBranch, Code2 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import ABOUT_IMG from "../assets/profile2.jpeg"
 
+const PROFILE_IMG = "/profile.jpeg";
 
 const highlights = [
   {
     icon: Shield,
-    title: "Audit-Ready Code",
-    desc: "Every contract is written with security-first principles, rigorous edge-case analysis, and audit-readiness as a baseline standard.",
+    title: "On-Chain KYC Systems",
+    desc: "Built DigiPort — a SaaS decentralized KYC platform with enterprise RBAC, OpenZeppelin upgradeable contracts, Chainlink-powered USDT billing, and multi-chain wallet integrations.",
   },
   {
-    icon: Zap,
-    title: "Gas Optimization",
-    desc: "Deep expertise in Solidity gas optimization patterns — from storage packing to assembly-level tricks — reducing deployment and execution costs.",
+    icon: Layers,
+    title: "DeFi on XRPL EVM",
+    desc: "Deployed the CFX ecosystem on mainnet — vault factories, oracle routers, and NAV-driven deposit/redemption logic across 6 smart contracts.",
+  },
+  {
+    icon: GitBranch,
+    title: "Cross-Chain Infrastructure",
+    desc: "Engineered MultX — a Lithosphere-based bridge with 2-of-3 multi-sig validators, Lock & Release settlement, and relayer coordination across ETH & BSC.",
   },
   {
     icon: Code2,
-    title: "Full-Stack Web3",
-    desc: "End-to-end DApp development: smart contracts, frontend integration with Ethers.js/Web3.js, and backend tooling with Node.js.",
-  },
-  {
-    icon: Award,
-    title: "Exchange-Listed Tokens",
-    desc: "Designed and launched DTVC token on MEXC exchange, audited by HashLock — from contract design through listing.",
+    title: "Full-Stack Web3 Delivery",
+    desc: "End-to-end DApp development from Solidity and OpenZeppelin contracts to React, Next.js, Go, and Node.js — production-ready and mainnet-deployed.",
   },
 ];
+
+const educationFacts = [
+  "BSc Telecom Engineering — UET Mardan (2021 – 2025)",
+  "English — Professional Working Proficiency",
+  "Urdu — Native",
+  "Available Immediately · Open to Relocation",
+];
+
+function EducationCard({ className = "" }: { className?: string }) {
+  return (
+    <div className={`glass-card hero-card-3d rounded-xl p-5 ${className}`}>
+      <p
+        className="text-xs mb-3 tracking-widest"
+        style={{
+          color: "#00D4FF",
+          fontFamily: "'Space Grotesk', sans-serif",
+          fontWeight: 600,
+          textTransform: "uppercase",
+        }}
+      >
+        Education & Background
+      </p>
+      <ul className="space-y-2">
+        {educationFacts.map((fact, i) => (
+          <li
+            key={i}
+            className="flex items-start gap-2 text-sm"
+            style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Inter', sans-serif" }}
+          >
+            <span style={{ color: "#00D4FF", marginTop: "2px", flexShrink: 0 }}>▸</span>
+            {fact}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export default function AboutSection() {
   const { ref, visible } = useScrollAnimation();
@@ -39,10 +72,8 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="py-24 relative overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #050D1A 0%, #0A1628 100%)" }}
+      className="section-pad relative overflow-x-hidden"
     >
-      {/* Background decoration */}
       <div
         className="absolute top-1/2 right-0 w-96 h-96 rounded-full pointer-events-none"
         style={{
@@ -52,17 +83,14 @@ export default function AboutSection() {
       />
 
       <div className="container mx-auto px-6 max-w-7xl">
-        {/* Section header */}
-        <div className="mb-16">
+        <div className="mb-10 md:mb-16">
           <p
             className="text-xs font-semibold mb-3 tracking-widest"
             style={{ color: "#00D4FF", fontFamily: "'Space Grotesk', sans-serif" }}
           >
             WHO I AM
           </p>
-          <h2 className="section-heading text-4xl lg:text-5xl mb-4">
-            About Me
-          </h2>
+          <h2 className="section-heading text-3xl sm:text-4xl lg:text-5xl mb-4">About Me</h2>
           <div className="teal-line w-16" />
         </div>
 
@@ -74,67 +102,33 @@ export default function AboutSection() {
             transform: visible ? "translateY(0)" : "translateY(30px)",
           }}
         >
-          {/* Left: Image + quick facts */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 max-w-sm mx-auto lg:max-w-none w-full">
             <div
-              className="rounded-2xl overflow-hidden mb-6 relative"
+              className="rounded-2xl overflow-hidden mb-6 relative w-full aspect-[4/5]"
               style={{
                 border: "1px solid rgba(0, 212, 255, 0.15)",
-                boxShadow: "0 0 40px rgba(0, 212, 255, 0.08)",
+                boxShadow:
+                  "0 10px 28px rgba(0, 0, 0, 0.35), 0 0 32px rgba(0, 212, 255, 0.08)",
               }}
             >
               <img
-                src={ABOUT_IMG}
-                alt="Blockchain Development Workspace"
-                className="w-full object-cover"
-                style={{ height: "320px" }}
+                src={PROFILE_IMG}
+                alt="Mohsin Azam — Blockchain & Web3 Developer"
+                className="w-full h-full object-cover object-[50%_20%]"
+                draggable={false}
               />
               <div
-                className="absolute inset-0"
+                className="absolute inset-0 pointer-events-none"
                 style={{
-                  background: "linear-gradient(to top, rgba(5,13,26,0.6) 0%, transparent 60%)",
+                  background:
+                    "linear-gradient(to top, rgba(5,13,26,0.5) 0%, transparent 40%)",
                 }}
               />
             </div>
 
-            {/* Certifications */}
-            <div
-              className="glass-card rounded-xl p-5"
-              style={{ borderLeft: "3px solid rgba(244, 196, 48, 0.5)" }}
-            >
-              <p
-                className="text-xs mb-3 tracking-widest"
-                style={{
-                  color: "#F4C430",
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  fontWeight: 600,
-                  textTransform: "uppercase",
-                }}
-              >
-                Certifications
-              </p>
-              <ul className="space-y-2">
-                {[
-                  "DeFi: The Future of Finance — Duke University",
-                  "Blockchain Basics — Great Learning",
-                  "Python For Everybody — University of Michigan",
-                  "Cybersecurity Specialization — Google",
-                  "Blockchain in Financial Services — Coursera",
-                ].map((cert, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-2 text-sm"
-                    style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Inter', sans-serif" }}
-                  >
-                    <span style={{ color: "#F4C430", marginTop: "2px", flexShrink: 0 }}>▸</span>
-                    {cert}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <EducationCard className="hidden lg:block" />
           </div>
 
-          {/* Right: Bio + highlights */}
           <div className="lg:col-span-3">
             <p
               className="text-lg mb-4 leading-relaxed"
@@ -144,10 +138,11 @@ export default function AboutSection() {
                 lineHeight: 1.8,
               }}
             >
-              My name is Maleeha and I am a Senior Blockchain Developer with over{" "}
-              <span style={{ color: "#00D4FF", fontWeight: 600 }}>5 years of comprehensive experience</span>{" "}
-              in the blockchain ecosystem. My technical expertise centers on Solidity development,
-              DeFi & L2 protocols, AMMs, and smart contract auditing.
+              I&apos;m <span style={{ color: "#00D4FF", fontWeight: 600 }}>Mohsin Azam</span>, a
+              Blockchain & Web3 Developer with{" "}
+              <span style={{ color: "#00D4FF", fontWeight: 600 }}>3+ years of hands-on experience</span>{" "}
+              architecting production-grade decentralized applications, smart contracts, and DeFi
+              infrastructure across Ethereum, BSC, Polygon, Tron, and XRPL EVM.
             </p>
             <p
               className="text-base mb-8 leading-relaxed"
@@ -157,21 +152,20 @@ export default function AboutSection() {
                 lineHeight: 1.8,
               }}
             >
-              I am proficient in JavaScript and Node.js for backend integration and custom tooling.
-              My development process emphasizes contract readability, gas efficiency, and audit-readiness —
-              because in blockchain, the cost of a bug is not a rollback; it is a headline.
+              Currently building DigiPort at Omnisoft Lahore, with a track record spanning on-chain
+              KYC platforms, cross-chain bridges, vault systems, and tokenization protocols. I deliver
+              full-cycle — from audited Solidity contracts to React, Next.js, Go, and Node.js
+              integration. Based in Lahore, immediately available, and open to relocation across Pakistan.
             </p>
 
-            {/* Highlights grid */}
+            <EducationCard className="lg:hidden mb-8" />
+
             <div className="grid sm:grid-cols-2 gap-4">
               {highlights.map((item, i) => (
                 <div
                   key={i}
-                  className="glass-card rounded-xl p-5 project-card"
-                  style={{
-                    borderTop: "2px solid rgba(0, 212, 255, 0.15)",
-                    transitionDelay: `${i * 0.1}s`,
-                  }}
+                  className="glass-card hero-card-3d rounded-xl p-5 project-card"
+                  style={{ transitionDelay: `${i * 0.1}s` }}
                 >
                   <div
                     className="w-9 h-9 rounded-lg flex items-center justify-center mb-3"

@@ -5,14 +5,20 @@
    - Social links with hover glow effects
    ============================================================ */
 import { useState } from "react";
-import { Mail, MapPin, Send, Github, Linkedin, MessageCircle, Clock } from "lucide-react";
+import { Mail, MapPin, Send, Github, Linkedin, Phone, Clock } from "lucide-react";
 
 const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "maleeha.naveed@example.com",
-    href: "mailto:maleeha.naveed@example.com",
+    value: "azammohsin816@gmail.com",
+    href: "mailto:azammohsin816@gmail.com",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+92 311 8363591",
+    href: "tel:+923118363591",
   },
   {
     icon: MapPin,
@@ -23,15 +29,15 @@ const contactInfo = [
   {
     icon: Clock,
     label: "Availability",
-    value: "Open to remote opportunities",
+    value: "Immediate · open to relocation (Lahore, Islamabad, Karachi)",
     href: null,
   },
 ];
 
 const socialLinks = [
-  { icon: Github, label: "GitHub", href: "https://github.com", color: "#ffffff" },
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com", color: "#0A66C2" },
-  { icon: MessageCircle, label: "Telegram", href: "https://t.me", color: "#00D4FF" },
+  { icon: Github, label: "GitHub", href: "https://github.com/EngrMohsinAzam", color: "#ffffff" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/in/mohsin-azam-b745a5292", color: "#0A66C2" },
+  { icon: Mail, label: "Email", href: "mailto:azammohsin816@gmail.com", color: "#00D4FF" },
 ];
 
 export default function ContactSection() {
@@ -100,9 +106,9 @@ export default function ContactSection() {
                 lineHeight: 1.8,
               }}
             >
-              Whether you are building a DeFi protocol, need a smart contract audit,
-              or want to discuss a Web3 project — I would love to hear from you.
-              I am currently open to senior blockchain developer roles and freelance engagements.
+              Whether you are building a DeFi protocol, launching a KYC platform,
+              or need a Web3 developer for your next project — I would love to hear from you.
+              I am available immediately for full-time roles and freelance engagements.
             </p>
 
             {/* Contact details */}

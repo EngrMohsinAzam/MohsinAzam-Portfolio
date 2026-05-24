@@ -1,125 +1,162 @@
 /* ============================================================
    DESIGN: Deep Ocean Protocol — Projects Section
-   - Card grid with glassmorphism
-   - Project images from generated assets
-   - Tech tags, GitHub/live links
-   - Featured project spans full width
    ============================================================ */
 import { useState } from "react";
 import { Github, ExternalLink, ChevronRight } from "lucide-react";
 
-import penguinBanner from "../assets/banner.png";
-import pumpbit from "../assets/pumpbit.png";
-import AstraWallet from "../assets/AstraWallet.jpeg"
-import invoicemate from "../assets/invoicemate.png";
+const DEFI_IMG = "/projects/cfx-defi.jpg";
+const KYC_IMG = "/projects/digiport-kyc.jpg";
+const BRIDGE_IMG = "/projects/multx-bridge.jpg";
+const SUPPLY_IMG = "/projects/supply-chain.jpg";
+const STAKING_IMG = "/projects/token-staking.jpg";
+const FUNDRAISE_IMG = "/projects/fundraising-dapp.jpg";
 
-
-const DEFI_IMG = "https://private-us-east-1.manuscdn.com/sessionFile/EJgbrQMdmKdD5pSFfQolop/sandbox/ZzmCZ0JCf2eLNxLMoPquvf-img-3_1771889892000_na1fn_ZGVmaS1wcm9qZWN0.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvRUpnYnJRTWRtS2RENXBTRmZRb2xvcC9zYW5kYm94L1p6bUNaMEpDZjJlTE54TE1vUHF1dmYtaW1nLTNfMTc3MTg4OTg5MjAwMF9uYTFmbl9aR1ZtYVMxd2NtOXFaV04wLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=fKgng808ZcvPqHxCEqf6PzdoxQkr5aBAZtwWs6DQ3TYny~478v2i3kST5KYiUuYHGIUDSEUiQflo3REqaOb9YwFe~3osgRSobSWI75i0oTUUGutF-lObUd~3NnzEyWckf4T1pyG0qRwBYGMeaLsXobCe~ojnjZYCl1dQ3~irbebQQqd76Zkfw29~pMMMGIChrNLRuxyW26065ppCUs12cU2Kzu~IcG3ICFlj50tl98iFQ7RNJJXL3SjJZ5IM5ckzKwS2ASNtKBuBT-VHdnl7VFm1I~oKO-~PGF-KGD4HYRGU08jEXmrhBZ7dxZj-8n~djZ-BfpbKkr9dV-9CgpnCMw__";
-const WALLET_IMG = "https://private-us-east-1.manuscdn.com/sessionFile/EJgbrQMdmKdD5pSFfQolop/sandbox/ZzmCZ0JCf2eLNxLMoPquvf-img-4_1771889886000_na1fn_d2FsbGV0LXByb2plY3Q.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvRUpnYnJRTWRtS2RENXBTRmZRb2xvcC9zYW5kYm94L1p6bUNaMEpDZjJlTE54TE1vUHF1dmYtaW1nLTRfMTc3MTg4OTg4NjAwMF9uYTFmbl9kMkZzYkdWMExYQnliMnBsWTNRLnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=UTvmvmuUzW13WIHqEzHrWRxQ5XR1v-VJlPy9Da-PwN1uE-IvypO6Wz--WMPc9NQtMBIVIKQAetGLwmyzJUn8ne1gjENeJOBxjoYNYXJYkNABkr2zwdEaIiMay9qaSBNPts637OiMQudPWIbyIfqid4d82X6Oscs1wNcn~HT~cm9DdZ5kwmKylxKkjCR7xtastJFP42X9QdvFOEfjgd2u99ckJNmaGJk46Ujl8dLTGE5VVuiSjO~qn9iUPAkt~4KpNb3lfuH8tkBFuxQDJJmUja4GLLi2XQaR-UVZAncDeUa1xSpMgoL~7ImHMGOLD66KRK8ce143kgKoR6Z0ZJPOzg__";
-const NFT_IMG = "https://private-us-east-1.manuscdn.com/sessionFile/EJgbrQMdmKdD5pSFfQolop/sandbox/ZzmCZ0JCf2eLNxLMoPquvf-img-5_1771889890000_na1fn_bmZ0LW1hcmtldHBsYWNl.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvRUpnYnJRTWRtS2RENXBTRmZRb2xvcC9zYW5kYm94L1p6bUNaMEpDZjJlTE54TE1vUHF1dmYtaW1nLTVfMTc3MTg4OTg5MDAwMF9uYTFmbl9ibVowTFcxaGNtdGxkSEJzWVdObC5wbmc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=s2cFziLLFRXD1W3MCp6fd1wfk5o2R~VM9Aw8JHC4dwG3KIojsBbwLQ0xJY9F-VBxNlIoLMDhPwVyHEj4kXk7Olp1GL8X1L4tQDHeFolZ5-v97NHlrX9Vao~HCPIyTBOFONqFgLdCINQ6YXCOkkGWfTPinK2K~nE1Nlq0Z7RmrAyi2S0C1zvheF5HYxaNg8lNbUFLkKYqYY1l7x-zv6QnZhdTAnKoMQntPsOvapam~z0VofJPcZeDxwSpQpP0tZeTVoMQYZ3yEVJbZt9UL~aw7IkEd7POT1jS6abviZMrRKmr0mW1cyPolEsQgpNXYBohXio0uQNCOWQyUVz9SCK-FQ__";
+const GITHUB_PROFILE = "https://github.com/EngrMohsinAzam";
 
 const projects = [
   {
     id: 1,
-    title: "AstraWallet — Non-Custodial Multi-Chain Wallet",
-    category: "Wallet Infrastructure",
+    title: "DigiPort — SaaS Decentralized KYC Platform",
+    category: "KYC Platform",
     description:
-      "A Trust Wallet-inspired non-custodial wallet supporting both EVM chains (Ethereum, BSC, Polygon, Arbitrum) and Solana. Built with zero server-side key storage — private keys are derived client-side using ECDSA and BIP-39 mnemonic phrases. Integrated 1inch for aggregated swaps, Uniswap for DEX access, MoonPay for fiat on-ramp, and CoinMarketCap for live pricing.",
-    image: AstraWallet,
+      "A SaaS-based decentralized KYC platform enabling secure on-chain identity verification, credential management, and compliance automation for financial institutions. Features enterprise-grade RBAC, OpenZeppelin upgradeable smart contracts, USDT subscription billing via Chainlink oracles, and multi-chain wallet integrations — live in production at Omnisoft Lahore.",
+    image: KYC_IMG,
     featured: true,
-    tags: ["Solidity", "ECDSA", "BIP-39", "1inch API", "Uniswap", "MoonPay", "Ethers.js", "Solana", "React"],
+    tags: ["Solidity", "SaaS", "KYC", "RBAC", "OpenZeppelin", "Chainlink", "USDT", "React", "Next.js"],
     highlights: [
-      "Zero private key server storage — fully non-custodial",
-      "Multi-chain: EVM (ETH, BSC, Polygon, Arbitrum) + Solana",
-      "Aggregated swaps via 1inch across 10+ EVM networks",
-      "Fiat on-ramp via MoonPay integration",
+      "SaaS KYC platform with on-chain identity verification and credential management",
+      "Enterprise-grade RBAC workflows for secure financial institution onboarding",
+      "USDT subscription billing with Chainlink-powered fiat-equivalent pricing",
+      "Upgradeable Solidity contracts using OpenZeppelin proxy patterns",
+      "Multi-chain wallet integrations across Ethereum, BSC, Polygon & EVM networks",
+      "Live production deployment at digiportid.com",
     ],
-    github: "https://github.com/maleeha045/Astra-Walet",
-    live: "http://www.astraprotocol.com/",
+    github: GITHUB_PROFILE,
+    live: "https://www.digiportid.com/",
+    networks: ["Ethereum", "BSC", "Polygon"],
+    status: "Live" as const,
     accentColor: "#00D4FF",
   },
-    {
+  {
     id: 2,
-    title: "Pumpbit — A Crypto Trading Platform",
-    category: "Trading Platform",
+    title: "MultX — Cross-Chain Transfer Protocol",
+    category: "Cross-Chain Bridge",
     description:
-"A crypto trading platform designed to facilitate perpetual contract trading on the B2 network and offer a staking feature for liquidity pools.",
-    image: pumpbit,
+      "A Lithosphere-based cross-chain bridge enabling secure asset transfers between Ethereum and Binance Smart Chain. Built with a 2-of-3 multi-signature validator consensus, Lock & Release settlement, and relayer coordination for trustless messaging.",
+    image: BRIDGE_IMG,
     featured: false,
-    tags: ["Solidity", "Binance API", "AMM","Next.js", "Node.js", "Hardhat", "Web3.js"],
-    highlights: [
-     "B2 Network Integration: Trade perpetual contracts on the B2 network, leveraging its robust infrastructure for seamless trading experiences",
-     "Real-time Data Analytics: Access real-time market data and analytics to make informed trading decisions",
-     "Order Management: Users can create market or limit orders, which are executed automatically with user-set margins",
-     "Automatic Position Management: Positions are automatically closed based on user-set take-profit (TP) or stop-loss (SL) levels",
-     "Manual Position Closure: Users can manually close positions at any time",
-    ],
-    github: "https://github.com/maleeha045/pumpbit",
-    live: "https://testnet.pumpbit.io/",
+    tags: ["Solidity", "Cross-Chain", "Multi-Sig", "Ethereum", "BSC", "Lithosphere", "Hardhat"],
+    highlights: [],
+    github: GITHUB_PROFILE,
+    live: "https://multxdev.litho.ai/",
+    networks: ["Ethereum", "BSC"],
+    status: "Live" as const,
     accentColor: "#00D4FF",
   },
-  
   {
     id: 3,
-    title: "InvoiceMate — Decentralized Credit Protocol",
+    title: "CFX Ecosystem — DeFi on XRPL EVM",
     category: "DeFi Protocol",
     description:
-      "A decentralized invoice financing protocol that transforms risk-scored invoices into short-term financial instruments. Enables crypto borrowing without crypto collateral through a KYI (Know Your Investor) mechanism. Deployed across BSC, Arbitrum, HAQQ, and IOTA networks with the DEFA governance token powering lending pool decisions.",
-    image: invoicemate,
+      "A full DeFi ecosystem deployed on XRPL EVM mainnet comprising 6 smart contracts: CFXToken, CFXSwap, PairVaultFactory, UniversalPairVault, SimpleOracleRouter, and PETToken — with factory-cloned vaults and NAV-driven deposit/redemption logic.",
+    image: DEFI_IMG,
     featured: false,
-    tags: ["Solidity", "DeFi", "DEFA Token", "BSC", "Arbitrum", "HAQQ", "IOTA", "Hardhat", "Ethers.js"],
-    highlights: [
-      "Invoice-backed lending without crypto collateral",
-      "DEFA governance token for lending pool management",
-      "Multi-chain: BSC, Arbitrum, HAQQ, IOTA",
-      "KYI compliance mechanism built into contracts",
-    ],
-    github: "https://github.com/maleeha045/FinanceMate-HAQQ",
-    live: "https://invoicemate.net/",
+    tags: ["Solidity", "DeFi", "Vaults", "Oracles", "XRPL EVM", "OpenZeppelin", "Mainnet"],
+    highlights: [],
+    github: GITHUB_PROFILE,
+    live: "https://explorer.xrplevm.org/address/0x30C89cfae115d65f309A63f8D18Ad4eC6708F2F9",
+    networks: ["XRPL EVM"],
+    status: "Mainnet" as const,
     accentColor: "#F4C430",
   },
-{
+  {
     id: 4,
-    title: "PenguinVault — NFT Marketplace",
-    category: "NFT Marketplace",
+    title: "Supply Chain Tracker — Bahria Incubation",
+    category: "Supply Chain / Web3",
     description:
-      "An NFT Marketplace that allows users to discover, list, and trade unique digital assets with a seamless redirection to OpenSea for secure transaction fulfillment.",
-    image: penguinBanner,
+      "An Ethereum-based supply chain tracking dApp built for Bahria University Karachi Incubation Center. Enables tamper-proof end-to-end product provenance verification with on-chain event logging and wallet authentication.",
+    image: SUPPLY_IMG,
     featured: false,
-    tags: ["OpenSea API", "Vite", "React.js", "Node.js", "Wagmi", "Ethers.js"],
-    highlights: [
-      "🦊 Web3 Wallet Integration: Full support for MetaMask and Coinbase Wallet",
-      "🔄 Live OpenSea Sync: Real-time floor prices, traits, and listing status via REST API",
-      "🎨 Themed Discovery: Custom UI components built specifically for character-based NFT collections",
-      "🛡️ Secure Redirection: Direct routing to OpenSea asset pages for Buy/Sell execution to prevent phishing and contract risks",
-      "⚡ Multi-Chain Support: Seamlessly browse assets across Ethereum, Polygon, and Arbitrum",
-    ],
-    github: "https://github.com/maleeha045/penguin_nft_marketplace",
-    live: "https://project-opensea-like-nft-marketplace-991.magicpatterns.app/",
+    tags: ["Solidity", "Ethereum", "Supply Chain", "Provenance", "React", "Ethers.js"],
+    highlights: [],
+    github: GITHUB_PROFILE,
+    live: "#",
+    networks: ["Ethereum"],
+    status: "University" as const,
     accentColor: "#F4C430",
   },
-   
- 
+  {
+    id: 5,
+    title: "Token Staking & Rewards System",
+    category: "DeFi / Staking",
+    description:
+      "ERC-20 staking contracts with time-locked rewards, configurable APY, and emergency withdrawal mechanisms. Includes upgradeable token contracts with minting, pausing, blacklisting, and OpenZeppelin Transparent Proxy patterns.",
+    image: STAKING_IMG,
+    featured: false,
+    tags: ["Solidity", "ERC-20", "Staking", "OpenZeppelin", "Proxy", "Hardhat"],
+    highlights: [],
+    github: GITHUB_PROFILE,
+    live: "#",
+    networks: ["Ethereum"],
+    status: "Personal" as const,
+    accentColor: "#00D4FF",
+  },
+  {
+    id: 6,
+    title: "University Fundraising dApp",
+    category: "DeFi Protocol",
+    description:
+      "An Ethereum-based fundraising platform with transparent on-chain campaign management, wallet authentication, and auditable fund tracking — enabling trustless donation flows with full transparency.",
+    image: FUNDRAISE_IMG,
+    featured: false,
+    tags: ["Solidity", "Ethereum", "DApp", "Wallet Auth", "React", "Ethers.js"],
+    highlights: [],
+    github: GITHUB_PROFILE,
+    live: "#",
+    networks: ["Ethereum"],
+    status: "University" as const,
+    accentColor: "#F4C430",
+  },
 ];
 
-type FilterType = "All" | "DeFi Protocol" | "Wallet Infrastructure" | "Token Engineering" | "NFT / Web3" | "E-Commerce DApp" | "DeFi / Staking";
-const filters: FilterType[] = ["All", "DeFi Protocol", "Wallet Infrastructure", "Token Engineering", "NFT / Web3"];
+const statusColors = {
+  Live: "#00D4FF",
+  Mainnet: "#F4C430",
+  University: "#A78BFA",
+  Personal: "#94A3B8",
+} as const;
+
+type FilterType =
+  | "All"
+  | "DeFi Protocol"
+  | "KYC Platform"
+  | "Cross-Chain Bridge"
+  | "Supply Chain / Web3"
+  | "DeFi / Staking";
+
+const filters: FilterType[] = [
+  "All",
+  "DeFi Protocol",
+  "KYC Platform",
+  "Cross-Chain Bridge",
+  "Supply Chain / Web3",
+  "DeFi / Staking",
+];
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState<FilterType>("All");
   const [expanded, setExpanded] = useState<number | null>(null);
 
-  const filtered = activeFilter === "All"
-    ? projects
-    : projects.filter(p => p.category === activeFilter || p.tags.some(t => activeFilter.includes(t)));
+  const filtered =
+    activeFilter === "All"
+      ? projects
+      : projects.filter((p) => p.category === activeFilter);
 
   return (
     <section
       id="projects"
-      className="py-24 relative overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #0A1628 0%, #050D1A 100%)" }}
+      className="section-pad relative overflow-x-hidden"
     >
-      {/* Background decoration */}
       <div
         className="absolute bottom-0 right-0 w-[500px] h-[500px] pointer-events-none"
         style={{
@@ -129,43 +166,40 @@ export default function ProjectsSection() {
       />
 
       <div className="container mx-auto px-6 max-w-7xl">
-        {/* Section header */}
         <div className="mb-12">
           <p
             className="text-xs font-semibold mb-3 tracking-widest"
             style={{ color: "#00D4FF", fontFamily: "'Space Grotesk', sans-serif" }}
           >
-            WHAT I'VE BUILT
+            WHAT I&apos;VE BUILT
           </p>
-          <h2 className="section-heading text-4xl lg:text-5xl mb-4">
-            Projects
-          </h2>
+          <h2 className="section-heading text-3xl sm:text-4xl lg:text-5xl mb-4">Projects</h2>
           <div className="teal-line w-16 mb-6" />
           <p
             className="text-base max-w-2xl"
             style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Inter', sans-serif" }}
           >
-            A selection of blockchain and DeFi projects spanning wallet infrastructure, lending protocols,
-            token engineering, and NFT ecosystems — each built with production-grade security standards.
+            Production blockchain projects spanning on-chain KYC, cross-chain bridges, DeFi vaults,
+            supply chain tracking, and tokenization — deployed across Ethereum, BSC, and XRPL EVM
+            mainnet.
           </p>
         </div>
 
-        {/* Filter tabs */}
-        <div className="flex flex-wrap gap-2 mb-10">
-          {filters.map(filter => (
+        <div className="filter-scroll">
+          {filters.map((filter) => (
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+              className="rounded-full text-sm font-medium transition-all duration-200"
               style={{
                 fontFamily: "'Space Grotesk', sans-serif",
-                background: activeFilter === filter
-                  ? "linear-gradient(135deg, #00D4FF, #0099CC)"
-                  : "rgba(255,255,255,0.05)",
+                background:
+                  activeFilter === filter
+                    ? "linear-gradient(135deg, #00D4FF, #0099CC)"
+                    : "rgba(255,255,255,0.05)",
                 color: activeFilter === filter ? "#050D1A" : "rgba(255,255,255,0.6)",
-                border: activeFilter === filter
-                  ? "none"
-                  : "1px solid rgba(255,255,255,0.1)",
+                border:
+                  activeFilter === filter ? "none" : "1px solid rgba(255,255,255,0.1)",
               }}
             >
               {filter}
@@ -173,31 +207,30 @@ export default function ProjectsSection() {
           ))}
         </div>
 
-        {/* Projects grid */}
         <div className="grid lg:grid-cols-3 gap-6">
           {filtered.map((project) => (
             <div
               key={project.id}
-              className={`glass-card rounded-2xl overflow-hidden project-card ${project.featured ? "lg:col-span-3" : ""}`}
+              className={`glass-card hero-card-3d rounded-2xl project-card ${project.featured ? "lg:col-span-3" : ""}`}
               style={{ borderTop: `2px solid ${project.accentColor}30` }}
             >
-              {/* Image */}
               <div
-                className={`relative overflow-hidden ${project.featured ? "h-64 lg:h-80" : "h-48"}`}
+                className={`relative overflow-hidden rounded-t-2xl ${project.featured ? "h-48 sm:h-64 lg:h-80" : "h-44 sm:h-48"}`}
               >
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
                 <div
                   className="absolute inset-0"
                   style={{
-                    background: `linear-gradient(to bottom, transparent 30%, rgba(5,13,26,0.9) 100%)`,
+                    background:
+                      "linear-gradient(to bottom, transparent 30%, rgba(5,13,26,0.9) 100%)",
                   }}
                 />
-                {/* Category badge */}
-                <div className="absolute top-4 left-4">
+                <div className="absolute top-3 sm:top-4 left-3 sm:left-4 flex flex-col gap-1.5 sm:gap-2 max-w-[calc(100%-4rem)]">
                   <span
                     className="text-xs px-3 py-1 rounded-full font-medium"
                     style={{
@@ -210,45 +243,76 @@ export default function ProjectsSection() {
                   >
                     {project.category}
                   </span>
+                  <span
+                    className="text-[10px] px-2.5 py-0.5 rounded-full font-semibold w-fit"
+                    style={{
+                      background: `${statusColors[project.status]}15`,
+                      border: `1px solid ${statusColors[project.status]}40`,
+                      color: statusColors[project.status],
+                      fontFamily: "'Space Grotesk', sans-serif",
+                      backdropFilter: "blur(8px)",
+                    }}
+                  >
+                    {project.status === "University" ? "University Project" : project.status}
+                  </span>
                 </div>
-                {/* Links overlay */}
-                <div className="absolute top-4 right-4 flex gap-2">
+                <div className="absolute top-3 sm:top-4 right-3 sm:right-4 flex gap-2">
                   <a
                     href={project.github}
-                    className="p-2 rounded-lg transition-all duration-200 hover:scale-110"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="touch-target rounded-lg transition-all duration-200 active:opacity-80"
                     style={{
                       background: "rgba(5,13,26,0.8)",
                       border: "1px solid rgba(255,255,255,0.1)",
                       color: "rgba(255,255,255,0.7)",
                       backdropFilter: "blur(8px)",
                     }}
+                    aria-label={`${project.title} on GitHub`}
                   >
                     <Github size={14} />
                   </a>
-                  <a
-                    href={project.live}
-                    className="p-2 rounded-lg transition-all duration-200 hover:scale-110"
-                    style={{
-                      background: "rgba(5,13,26,0.8)",
-                      border: "1px solid rgba(255,255,255,0.1)",
-                      color: "rgba(255,255,255,0.7)",
-                      backdropFilter: "blur(8px)",
-                    }}
-                  >
-                    <ExternalLink size={14} />
-                  </a>
+                  {project.live !== "#" && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="touch-target rounded-lg transition-all duration-200 active:opacity-80"
+                      style={{
+                        background: "rgba(5,13,26,0.8)",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                        color: "rgba(255,255,255,0.7)",
+                        backdropFilter: "blur(8px)",
+                      }}
+                      aria-label={`${project.title} live demo`}
+                    >
+                      <ExternalLink size={14} />
+                    </a>
+                  )}
                 </div>
               </div>
 
-              {/* Content */}
-              <div className={`p-6 ${project.featured ? "lg:grid lg:grid-cols-2 lg:gap-8" : ""}`}>
-                <div>
-                  <h3
-                    className="text-lg font-bold text-white mb-3"
-                    style={{ fontFamily: "'Syne', sans-serif", lineHeight: 1.3 }}
-                  >
+              <div className="project-card-body p-4 sm:p-6 overflow-visible">
+                <div className={project.featured ? "grid lg:grid-cols-2 lg:gap-8 gap-6" : ""}>
+                  <div>
+                  <h3 className="project-title text-white">
                     {project.title}
                   </h3>
+                  <div className="project-networks">
+                    {project.networks.map((network) => (
+                      <span
+                        key={network}
+                        className="project-network-badge"
+                        style={{
+                          background: "rgba(255,255,255,0.05)",
+                          border: "1px solid rgba(255,255,255,0.12)",
+                          color: "rgba(255,255,255,0.65)",
+                        }}
+                      >
+                        {network}
+                      </span>
+                    ))}
+                  </div>
                   <p
                     className="text-sm mb-4 leading-relaxed"
                     style={{
@@ -263,20 +327,26 @@ export default function ProjectsSection() {
                   </p>
                   {project.description.length >= 200 && (
                     <button
-                      onClick={() => setExpanded(expanded === project.id ? null : project.id)}
-                      className="flex items-center gap-1 text-xs mb-4"
+                      onClick={() =>
+                        setExpanded(expanded === project.id ? null : project.id)
+                      }
+                      className="flex items-center gap-1 text-xs mb-4 touch-target min-h-[44px] px-1 -ml-1"
                       style={{ color: "#00D4FF", fontFamily: "'Space Grotesk', sans-serif" }}
                     >
                       {expanded === project.id ? "Show less" : "Read more"}
                       <ChevronRight
                         size={12}
-                        style={{ transform: expanded === project.id ? "rotate(90deg)" : "none" }}
+                        style={{
+                          transform: expanded === project.id ? "rotate(90deg)" : "none",
+                        }}
                       />
                     </button>
                   )}
                   <div className="flex flex-wrap gap-2">
-                    {project.tags.slice(0, 6).map(tag => (
-                      <span key={tag} className="skill-badge">{tag}</span>
+                    {project.tags.slice(0, 6).map((tag) => (
+                      <span key={tag} className="skill-badge">
+                        {tag}
+                      </span>
                     ))}
                     {project.tags.length > 6 && (
                       <span className="skill-badge">+{project.tags.length - 6}</span>
@@ -284,8 +354,7 @@ export default function ProjectsSection() {
                   </div>
                 </div>
 
-                {/* Highlights (featured only) */}
-                {project.featured && (
+                {project.featured && project.highlights.length > 0 && (
                   <div>
                     <p
                       className="text-xs mb-3 tracking-widest"
@@ -324,6 +393,7 @@ export default function ProjectsSection() {
                     </ul>
                   </div>
                 )}
+                </div>
               </div>
             </div>
           ))}

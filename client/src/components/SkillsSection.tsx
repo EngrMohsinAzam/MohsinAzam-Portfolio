@@ -1,8 +1,5 @@
 /* ============================================================
    DESIGN: Deep Ocean Protocol — Skills Section
-   - Categorized skill groups with glassmorphism cards
-   - Animated progress bars for proficiency (scroll-triggered)
-   - Hexagonal badge grid for tech stack
    ============================================================ */
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -12,23 +9,23 @@ const skillCategories = [
     color: "#00D4FF",
     icon: "⬡",
     skills: [
-      { name: "Solidity", level: 97 },
-      { name: "Smart Contract Auditing", level: 90 },
-      { name: "Gas Optimization", level: 92 },
-      { name: "Upgradeable Contracts (UUPS/Proxy)", level: 88 },
-      { name: "ERC Standards (20/721/1155/3643)", level: 95 },
+      { name: "Solidity", level: 88 },
+      { name: "ERC-20 / ERC-1155 Standards", level: 90 },
+      { name: "Upgradeable Contracts (Proxy)", level: 85 },
+      { name: "OpenZeppelin", level: 88 },
+      { name: "Gas Optimization", level: 85 },
     ],
   },
   {
-    title: "DeFi Protocols & Integrations",
+    title: "DeFi & Protocols",
     color: "#F4C430",
     icon: "◈",
     skills: [
-      { name: "Uniswap V2/V3 (AMM)", level: 92 },
-      { name: "Aave V3 (Flash Loans)", level: 85 },
-      { name: "Chainlink Oracles", level: 88 },
-      { name: "1inch Aggregator", level: 85 },
-      { name: "DeFi Protocol Architecture", level: 90 },
+      { name: "Tokenization & Staking", level: 88 },
+      { name: "Vaults & Liquidity Pools", level: 85 },
+      { name: "Chainlink Oracles", level: 85 },
+      { name: "Cross-Chain Bridges", level: 88 },
+      { name: "AMM / DEX Integration", level: 82 },
     ],
   },
   {
@@ -36,53 +33,77 @@ const skillCategories = [
     color: "#00D4FF",
     icon: "◇",
     skills: [
-      { name: "Ethers.js", level: 93 },
-      { name: "Web3.js", level: 88 },
-      { name: "Hardhat", level: 95 },
-      { name: "Alchemy / Infura / Moralis", level: 88 },
-      { name: "IPFS / Pinata", level: 85 },
+      { name: "Hardhat", level: 90 },
+      { name: "Ethers.js", level: 88 },
+      { name: "Wagmi", level: 85 },
+      { name: "MetaMask / WalletConnect", level: 88 },
+      { name: "IPFS", level: 82 },
     ],
   },
   {
-    title: "Languages & Backend",
+    title: "Frontend & Backend",
     color: "#F4C430",
     icon: "◉",
     skills: [
-      { name: "JavaScript / TypeScript", level: 88 },
-      { name: "Node.js", level: 82 },
-      { name: "Python", level: 78 },
-      { name: "SQL / MongoDB", level: 75 },
-      { name: "React / Frontend Integration", level: 80 },
+      { name: "React.js / Next.js", level: 85 },
+      { name: "TypeScript", level: 83 },
+      { name: "Node.js", level: 80 },
+      { name: "Go (Golang)", level: 75 },
+      { name: "Git / GitHub", level: 88 },
     ],
   },
 ];
 
 const techBadges = [
-  "Solidity", "Hardhat", "Ethers.js", "Web3.js", "Truffle",
-  "Remix IDE", "OpenZeppelin", "Chainlink", "IPFS", "Moralis",
-  "Alchemy", "Infura", "MetaMask", "WalletConnect", "Uniswap V3",
-  "Aave V3", "1inch", "MoonPay", "ERC-20", "ERC-721",
-  "ERC-1155", "ERC-3643", "ECDSA", "BIP-39", "Slither",
-  "JavaScript", "TypeScript", "Node.js", "React", "Python",
-  "BSC", "Arbitrum", "Polygon", "Ethereum", "Solana",
+  "Solidity",
+  "Hardhat",
+  "Ethers.js",
+  "Wagmi",
+  "Web3.js",
+  "Remix IDE",
+  "OpenZeppelin",
+  "Chainlink",
+  "IPFS",
+  "MetaMask",
+  "WalletConnect",
+  "ERC-20",
+  "ERC-1155",
+  "Proxy Patterns",
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Node.js",
+  "Go",
+  "Git",
+  "GitHub",
+  "Ethereum",
+  "BSC",
+  "Polygon",
+  "Tron",
+  "XRPL EVM",
+  "DeFi",
+  "Cross-Chain",
+  "Tokenization",
 ];
 
-function SkillCard({ cat, index }: { cat: typeof skillCategories[0]; index: number }) {
+function SkillCard({ cat, index }: { cat: (typeof skillCategories)[0]; index: number }) {
   const { ref, visible } = useScrollAnimation(0.2);
 
   return (
     <div
       ref={ref}
-      className="glass-card rounded-2xl p-6 project-card transition-all duration-700"
+      className="glass-card hero-card-3d rounded-2xl p-6 project-card transition-all duration-700"
       style={{
-        borderTop: `2px solid ${cat.color}30`,
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(30px)",
         transitionDelay: `${index * 0.15}s`,
       }}
     >
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-2xl" style={{ color: cat.color }}>{cat.icon}</span>
+        <span className="text-2xl" style={{ color: cat.color }}>
+          {cat.icon}
+        </span>
         <h3
           className="font-bold text-white text-base"
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
@@ -138,10 +159,8 @@ export default function SkillsSection() {
   return (
     <section
       id="skills"
-      className="py-24 relative overflow-hidden"
-      style={{ background: "#050D1A" }}
+      className="section-pad relative overflow-x-hidden"
     >
-      {/* Background decoration */}
       <div
         className="absolute top-1/2 left-1/2 w-[600px] h-[600px] pointer-events-none"
         style={{
@@ -151,33 +170,27 @@ export default function SkillsSection() {
       />
 
       <div className="container mx-auto px-6 max-w-7xl">
-        {/* Section header */}
-        <div className="mb-16">
+        <div className="mb-10 md:mb-16">
           <p
             className="text-xs font-semibold mb-3 tracking-widest"
             style={{ color: "#00D4FF", fontFamily: "'Space Grotesk', sans-serif" }}
           >
             TECHNICAL EXPERTISE
           </p>
-          <h2 className="section-heading text-4xl lg:text-5xl mb-4">
-            Skills & Stack
-          </h2>
+          <h2 className="section-heading text-3xl sm:text-4xl lg:text-5xl mb-4">Skills & Stack</h2>
           <div className="teal-line w-16" />
         </div>
 
-        {/* Skill categories grid */}
         <div className="grid lg:grid-cols-2 gap-6 mb-16">
           {skillCategories.map((cat, ci) => (
             <SkillCard key={ci} cat={cat} index={ci} />
           ))}
         </div>
 
-        {/* Full tech stack badges */}
         <div
           ref={badgeRef}
-          className="glass-card rounded-2xl p-8 transition-all duration-700"
+          className="glass-card hero-card-3d rounded-2xl p-5 sm:p-8 transition-all duration-700"
           style={{
-            borderTop: "2px solid rgba(0,212,255,0.15)",
             opacity: badgeVisible ? 1 : 0,
             transform: badgeVisible ? "translateY(0)" : "translateY(20px)",
           }}

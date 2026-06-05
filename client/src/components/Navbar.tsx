@@ -1,8 +1,10 @@
 /* ============================================================
    DESIGN: Deep Ocean Protocol — Navbar
+   Layout: brand (left) · nav links + Resume (right)
    ============================================================ */
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { RESUME_URL } from "@/config/site";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -35,11 +37,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
@@ -54,8 +52,7 @@ export default function Navbar() {
   }, []);
 
   const scrollTo = (href: string) => {
-    const id = href.slice(1);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(href.slice(1))?.scrollIntoView({ behavior: "smooth" });
     setMobileOpen(false);
   };
 
@@ -63,137 +60,111 @@ export default function Navbar() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 max-md:!bg-[rgba(5,13,26,0.95)] max-md:!backdrop-blur-md max-md:border-b max-md:border-[rgba(0,212,255,0.08)]"
+      className="navbar fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
         background: showSolidBg ? "rgba(5, 13, 26, 0.92)" : "transparent",
         backdropFilter: showSolidBg ? "blur(16px)" : "none",
         borderBottom: showSolidBg ? "1px solid rgba(0, 212, 255, 0.08)" : "none",
       }}
     >
-      <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between max-w-7xl relative z-[60]">
+      <div className="navbar-inner container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Brand — left */}
         <button
+          type="button"
           onClick={() => {
             window.scrollTo({ top: 0, behavior: "smooth" });
             setMobileOpen(false);
           }}
-          className="flex items-center gap-2 sm:gap-3 shrink-0 min-h-[44px]"
+          className="navbar-brand"
           aria-label="Mohsin Azam — scroll to top"
         >
-          <div
-            className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center overflow-hidden"
-            aria-hidden="true"
-          >
+          <div className="navbar-logo" aria-hidden="true">
             <img
               src="/Icone_logo.png"
               alt=""
-              className="h-[160%] w-[160%] max-w-none object-contain pointer-events-none select-none"
+              className="h-full w-full object-contain pointer-events-none select-none"
               draggable={false}
             />
           </div>
-          <span
-            className="leading-none hidden min-[380px]:inline"
-            style={{
-              fontFamily: "'Syne', sans-serif",
-              fontWeight: 700,
-              fontSize: "0.95rem",
-              color: "rgba(255,255,255,0.9)",
-              letterSpacing: "0.02em",
-            }}
-          >
-            Mohsin<span style={{ color: "#00D4FF" }}> Azam</span>
+          <span className="navbar-name">
+            Mohsin<span className="text-[#00D4FF]"> Azam</span>
           </span>
         </button>
 
-        <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <button
-              key={item.href}
-              onClick={() => scrollTo(item.href)}
-              className="nav-link min-h-[44px] px-1"
-              style={{
-                color:
-                  activeSection === item.href.slice(1)
-                    ? "#00D4FF"
-                    : "rgba(255,255,255,0.7)",
-              }}
-            >
-              {item.label}
-            </button>
-          ))}
-          <a
-            href="/MohsinAzam_Resume.pdf"
-            download
-            className="btn-teal px-5 py-2.5 rounded text-sm inline-flex items-center min-h-[44px]"
-          >
+        {/* Desktop — links + Resume grouped on the right (reference layout) */}
+        <div className="navbar-desktop hidden lg:flex items-center">
+          <div className="navbar-links flex items-center">
+            {navItems.map((item) => {
+              const id = item.href.slice(1);
+              const isActive = activeSection === id;
+              return (
+                <button
+                  key={item.href}
+                  type="button"
+                  onClick={() => scrollTo(item.href)}
+                  className="nav-link"
+                  style={{
+                    color: isActive ? "#00D4FF" : "rgba(255,255,255,0.65)",
+                  }}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
+          </div>
+          <a href={RESUME_URL} className="btn-teal navbar-resume-btn">
             Resume
           </a>
         </div>
 
+        {/* Mobile — hamburger only */}
         <button
-          className="md:hidden text-white touch-target rounded-lg"
+          type="button"
+          className="navbar-menu-btn lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={22} strokeWidth={2} /> : <Menu size={22} strokeWidth={2} />}
         </button>
       </div>
 
+      {/* Mobile menu panel */}
       {mobileOpen && (
         <>
           <button
             type="button"
-            className="md:hidden fixed inset-0 z-40 bg-black/50"
+            className="navbar-backdrop lg:hidden"
             aria-label="Close menu"
             onClick={() => setMobileOpen(false)}
           />
-          <div
-            className="md:hidden relative z-50 px-4 pb-6 pt-2 safe-bottom max-h-[calc(100dvh-4rem)] overflow-y-auto"
-          style={{
-            background: "rgba(5, 13, 26, 0.98)",
-            borderBottom: "1px solid rgba(0, 212, 255, 0.1)",
-          }}
-        >
-          {navItems.map((item) => {
-            const isActive = activeSection === item.href.slice(1);
-            return (
-              <button
-                key={item.href}
-                onClick={() => scrollTo(item.href)}
-                className="block w-full text-left py-3.5 px-2 nav-link border-b min-h-[48px] text-base"
-                style={{
-                  borderColor: "rgba(0,212,255,0.08)",
-                  color: isActive ? "#00D4FF" : "rgba(255,255,255,0.85)",
-                }}
-              >
-                {item.label}
-              </button>
-            );
-          })}
-          <a
-            href="/MohsinAzam_Resume.pdf"
-            download
-            className="btn-teal w-full mt-4 py-3.5 rounded-lg text-sm inline-flex items-center justify-center min-h-[48px]"
-            onClick={() => setMobileOpen(false)}
-          >
-            Download Resume
-          </a>
-          <div className="flex justify-center gap-3 mt-5 pt-4 border-t border-[rgba(0,212,255,0.08)]">
+          <div className="navbar-mobile-panel lg:hidden">
+            {navItems.map((item) => {
+              const id = item.href.slice(1);
+              const isActive = activeSection === id;
+              return (
+                <button
+                  key={item.href}
+                  type="button"
+                  onClick={() => scrollTo(item.href)}
+                  className="navbar-mobile-link"
+                  style={{ color: isActive ? "#00D4FF" : "rgba(255,255,255,0.85)" }}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
             <a
-              href="mailto:azammohsin816@gmail.com"
-              className="text-sm touch-target px-3 rounded-lg"
-              style={{ color: "#00D4FF", fontFamily: "'Space Grotesk', sans-serif" }}
+              href={RESUME_URL}
+              className="btn-teal navbar-mobile-resume"
+              onClick={() => setMobileOpen(false)}
             >
-              Email
+              Download Resume
             </a>
-            <a
-              href="tel:+923118363591"
-              className="text-sm touch-target px-3 rounded-lg"
-              style={{ color: "#00D4FF", fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              Call
-            </a>
-          </div>
+            <div className="navbar-mobile-contact">
+              <a href="mailto:azammohsin816@gmail.com">Email</a>
+              <a href="tel:+923118363591">Call</a>
+            </div>
           </div>
         </>
       )}

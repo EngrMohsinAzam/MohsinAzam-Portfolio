@@ -7,6 +7,7 @@
    ============================================================ */
 import { useEffect, useState } from "react";
 import { Github, Linkedin, Mail, Phone, ChevronDown, ExternalLink } from "lucide-react";
+import { RESUME_URL } from "@/config/site";
 
 const roles = [
   "Blockchain & Web3 Developer",
@@ -281,8 +282,7 @@ export default function HeroSection() {
                 View Projects
               </button>
               <a
-                href="/MohsinAzam_Resume.pdf"
-                download
+                href={RESUME_URL}
                 className="btn-outline-teal px-7 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center justify-center w-full sm:w-auto min-h-[48px]"
               >
                 Resume

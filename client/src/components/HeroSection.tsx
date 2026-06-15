@@ -8,43 +8,46 @@
 import { useEffect, useState } from "react";
 import { Github, Linkedin, Mail, Phone, ChevronDown, ExternalLink } from "lucide-react";
 import { RESUME_URL } from "@/config/site";
+import { useTypewriter } from "@/hooks/useTypewriter";
 
 const roles = [
-  "Blockchain & Web3 Developer",
+  "Golang Backend Engineer",
+  "Microservices & REST API Developer",
   "Solidity Smart Contract Engineer",
-  "DeFi Protocol Developer",
-  "Cross-Chain Bridge Architect",
-  "Full-Stack DApp Developer",
+  "Blockchain & Web3 Developer",
+  "Fintech & DeFi Specialist",
+  "Cloud-Native Backend Developer",
+  "Enterprise API Architect",
 ];
 
 const coreStack = [
-  "Blockchain & Web3 Developer",
+  "Golang · REST APIs · gRPC",
+  "Microservices & API Development",
   "Solidity & Smart Contracts",
-  "DeFi Protocol Engineering",
-  "Ethereum | BSC | Polygon",
-  "Go (Golang) & Node.js",
-  "React | Next.js | TypeScript",
-  "Cross-Chain & Tokenization",
+  "DeFi · Fintech · Tokenization",
+  "PostgreSQL · MongoDB · Redis",
+  "Docker · Kubernetes · DevOps",
+  "Go URL Shortener · REST API",
 ];
 
 const productionHighlights = [
   {
-    title: "DigiPort",
-    desc: "SaaS Decentralized KYC Platform",
+    title: "DigiPort KYC",
+    desc: "SaaS Identity Verification Platform",
     href: "https://www.digiportid.com/",
     tag: "Live",
     accent: "#00D4FF",
   },
   {
-    title: "MultX",
-    desc: "Cross-Chain Bridge · ETH ↔ BSC",
+    title: "MultX Bridge",
+    desc: "Cross-Chain Token Transfer · ETH ↔ BSC",
     href: "https://multxdev.litho.ai/",
     tag: "Live",
     accent: "#00D4FF",
   },
   {
-    title: "CFX Ecosystem",
-    desc: "DeFi Vaults on XRPL EVM Mainnet",
+    title: "CryptoForexBridge",
+    desc: "Forex Tokenization on XRPL EVM",
     href: "https://explorer.xrplevm.org/address/0x30C89cfae115d65f309A63f8D18Ad4eC6708F2F9",
     tag: "Mainnet",
     accent: "#F4C430",
@@ -158,51 +161,16 @@ function ProductionHighlightsPanel() {
 }
 
 export default function HeroSection() {
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [displayed, setDisplayed] = useState(roles[0]);
-  const [typing, setTyping] = useState(true);
-  const [charIndex, setCharIndex] = useState(0);
+  const displayed = useTypewriter(roles);
   const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const apply = () => {
-      setReduceMotion(mq.matches);
-      if (mq.matches) setDisplayed(roles[0]);
-    };
+    const apply = () => setReduceMotion(mq.matches);
     apply();
     mq.addEventListener("change", apply);
     return () => mq.removeEventListener("change", apply);
   }, []);
-
-  // Typewriter effect
-  useEffect(() => {
-    if (reduceMotion) return;
-    const currentRole = roles[roleIndex];
-    if (typing) {
-      if (charIndex < currentRole.length) {
-        const timeout = setTimeout(() => {
-          setDisplayed(currentRole.slice(0, charIndex + 1));
-          setCharIndex(c => c + 1);
-        }, 60);
-        return () => clearTimeout(timeout);
-      } else {
-        const timeout = setTimeout(() => setTyping(false), 2000);
-        return () => clearTimeout(timeout);
-      }
-    } else {
-      if (charIndex > 0) {
-        const timeout = setTimeout(() => {
-          setDisplayed(currentRole.slice(0, charIndex - 1));
-          setCharIndex(c => c - 1);
-        }, 35);
-        return () => clearTimeout(timeout);
-      } else {
-        setRoleIndex(i => (i + 1) % roles.length);
-        setTyping(true);
-      }
-    }
-  }, [charIndex, typing, roleIndex, reduceMotion]);
 
   const scrollToAbout = () => {
     document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
@@ -226,7 +194,7 @@ export default function HeroSection() {
                 }}
               >
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 mr-2 animate-pulse" />
-                Immediately Available · Lahore, Pakistan
+                Open to Opportunities · Based in KSA
               </span>
             </div>
 
@@ -246,17 +214,15 @@ export default function HeroSection() {
 
             {/* Typewriter role */}
             <div
-              className="text-lg sm:text-xl lg:text-2xl mb-6 min-h-[2rem] sm:min-h-8 lg:min-h-10"
+              className="text-lg sm:text-xl lg:text-2xl mb-6 min-h-[3rem] sm:min-h-[2.75rem] lg:min-h-[3.25rem]"
               style={{
                 fontFamily: "'Space Grotesk', sans-serif",
                 fontWeight: 500,
                 color: "rgba(255,255,255,0.75)",
               }}
             >
-              {displayed}
-              {!reduceMotion && (
-                <span className="animate-blink" style={{ color: "#00D4FF" }}>|</span>
-              )}
+              <span aria-live="polite">{displayed}</span>
+              <span className="typewriter-cursor" style={{ color: "#00D4FF" }}>|</span>
             </div>
 
             {/* Bio */}
@@ -268,9 +234,9 @@ export default function HeroSection() {
                 lineHeight: 1.7,
               }}
             >
-              3+ years shipping production Web3 — secure smart contracts, DeFi protocols, and
-              full-stack DApps on Ethereum, BSC, Polygon, Tron & XRPL EVM. From mainnet deployments
-              to React & Next.js — built to scale, ready to deliver.
+              2+ years building scalable backend systems, secure smart contracts, DeFi applications,
+              and tokenization platforms. Strong in Golang, Solidity, REST APIs, gRPC, microservices,
+              and Web3 integrations — designed for performance, security, and scale.
             </p>
 
             {/* CTA buttons */}
@@ -306,7 +272,7 @@ export default function HeroSection() {
                 <Github size={18} />
               </a>
               <a
-                href="https://linkedin.com/in/mohsin-azam-b745a5292"
+                href="https://www.linkedin.com/in/mohsin-azam-b745a5292/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn profile"

@@ -9,59 +9,60 @@ const KYC_IMG = "/projects/digiport-kyc.jpg";
 const BRIDGE_IMG = "/projects/multx-bridge.jpg";
 const SUPPLY_IMG = "/projects/supply-chain.jpg";
 const STAKING_IMG = "/projects/token-staking.jpg";
-const FUNDRAISE_IMG = "/projects/fundraising-dapp.jpg";
+
+const BACKEND_IMG = "/projects/fundraising-dapp.jpg";
 
 const GITHUB_PROFILE = "https://github.com/EngrMohsinAzam";
 
 const projects = [
   {
     id: 1,
-    title: "DigiPort — SaaS Decentralized KYC Platform",
+    title: "DigiPort KYC — SaaS Identity Verification Platform",
     category: "KYC Platform",
     description:
-      "A SaaS-based decentralized KYC platform enabling secure on-chain identity verification, credential management, and compliance automation for financial institutions. Features enterprise-grade RBAC, OpenZeppelin upgradeable smart contracts, USDT subscription billing via Chainlink oracles, and multi-chain wallet integrations — live in production at Omnisoft Lahore.",
+      "A blockchain-powered SaaS KYC platform for secure identity verification and compliance management. Features Solidity smart contracts for KYC workflows, Golang backend APIs, AI document verification, RBAC, wallet integration, and hybrid on-chain/off-chain architecture — live at Omnisoft Lahore.",
     image: KYC_IMG,
     featured: true,
-    tags: ["Solidity", "SaaS", "KYC", "RBAC", "OpenZeppelin", "Chainlink", "USDT", "React", "Next.js"],
+    tags: ["Golang", "Solidity", "SaaS", "KYC", "RBAC", "AI Verification", "React.js"],
     highlights: [
-      "SaaS KYC platform with on-chain identity verification and credential management",
-      "Enterprise-grade RBAC workflows for secure financial institution onboarding",
-      "USDT subscription billing with Chainlink-powered fiat-equivalent pricing",
-      "Upgradeable Solidity contracts using OpenZeppelin proxy patterns",
-      "Multi-chain wallet integrations across Ethereum, BSC, Polygon & EVM networks",
+      "Blockchain-powered SaaS KYC platform with secure identity verification and compliance",
+      "Solidity smart contracts for KYC record management and platform fee handling",
+      "Golang backend APIs supporting multi-company onboarding and KYC lifecycle",
+      "AI-based document verification and fraud detection for automated validation",
+      "Hybrid architecture combining on-chain transparency with off-chain verification",
       "Live production deployment at digiportid.com",
     ],
     github: GITHUB_PROFILE,
     live: "https://www.digiportid.com/",
-    networks: ["Ethereum", "BSC", "Polygon"],
+    networks: ["Ethereum", "EVM"],
     status: "Live" as const,
     accentColor: "#00D4FF",
   },
   {
     id: 2,
-    title: "MultX — Cross-Chain Transfer Protocol",
+    title: "MultX Bridge — Cross-Chain Token Transfer Platform",
     category: "Cross-Chain Bridge",
     description:
-      "A Lithosphere-based cross-chain bridge enabling secure asset transfers between Ethereum and Binance Smart Chain. Built with a 2-of-3 multi-signature validator consensus, Lock & Release settlement, and relayer coordination for trustless messaging.",
+      "A cross-chain token bridge enabling secure asset transfers between Ethereum and BNB Chain. Built with Solidity contracts for locking, minting, burning, and release — plus validator/relayer verification, MetaMask integration, and OpenZeppelin-secured workflows.",
     image: BRIDGE_IMG,
     featured: false,
-    tags: ["Solidity", "Cross-Chain", "Multi-Sig", "Ethereum", "BSC", "Lithosphere", "Hardhat"],
+    tags: ["Solidity", "Cross-Chain", "Hardhat", "OpenZeppelin", "Ethers.js", "Ethereum", "BNB Chain"],
     highlights: [],
     github: GITHUB_PROFILE,
     live: "https://multxdev.litho.ai/",
-    networks: ["Ethereum", "BSC"],
+    networks: ["Ethereum", "BNB Chain"],
     status: "Live" as const,
     accentColor: "#00D4FF",
   },
   {
     id: 3,
-    title: "CFX Ecosystem — DeFi on XRPL EVM",
+    title: "CryptoForexBridge (CFX) — Forex Tokenization Platform",
     category: "DeFi Protocol",
     description:
-      "A full DeFi ecosystem deployed on XRPL EVM mainnet comprising 6 smart contracts: CFXToken, CFXSwap, PairVaultFactory, UniversalPairVault, SimpleOracleRouter, and PETToken — with factory-cloned vaults and NAV-driven deposit/redemption logic.",
+      "A decentralized forex tokenization platform on XRPL EVM. Solidity smart contracts enable stablecoin deposits and ERC1155 tokenized forex pairs with vault, minting, redemption, and oracle-based pricing for secure financial workflows.",
     image: DEFI_IMG,
     featured: false,
-    tags: ["Solidity", "DeFi", "Vaults", "Oracles", "XRPL EVM", "OpenZeppelin", "Mainnet"],
+    tags: ["Solidity", "DeFi", "ERC1155", "Tokenization", "XRPL EVM", "Oracles", "Hardhat"],
     highlights: [],
     github: GITHUB_PROFILE,
     live: "https://explorer.xrplevm.org/address/0x30C89cfae115d65f309A63f8D18Ad4eC6708F2F9",
@@ -71,13 +72,13 @@ const projects = [
   },
   {
     id: 4,
-    title: "Supply Chain Tracker — Bahria Incubation",
+    title: "Decentralized Supply Chain Tracker",
     category: "Supply Chain / Web3",
     description:
-      "An Ethereum-based supply chain tracking dApp built for Bahria University Karachi Incubation Center. Enables tamper-proof end-to-end product provenance verification with on-chain event logging and wallet authentication.",
+      "A blockchain-based supply chain management platform for transparent, secure, and tamper-proof product lifecycle tracking. Features Solidity contracts for registration and ownership transfer, React.js dashboard with MetaMask, and RBAC for secure operations.",
     image: SUPPLY_IMG,
     featured: false,
-    tags: ["Solidity", "Ethereum", "Supply Chain", "Provenance", "React", "Ethers.js"],
+    tags: ["Solidity", "Supply Chain", "React.js", "MetaMask", "RBAC", "Ethers.js"],
     highlights: [],
     github: GITHUB_PROFILE,
     live: "#",
@@ -87,13 +88,13 @@ const projects = [
   },
   {
     id: 5,
-    title: "Token Staking & Rewards System",
-    category: "DeFi / Staking",
+    title: "Olwist Token — Advanced ERC20",
+    category: "Token / Smart Contracts",
     description:
-      "ERC-20 staking contracts with time-locked rewards, configurable APY, and emergency withdrawal mechanisms. Includes upgradeable token contracts with minting, pausing, blacklisting, and OpenZeppelin Transparent Proxy patterns.",
+      "An advanced ERC20 token with minting, pausing, blacklisting, expiry management, and upgradeable smart contract functionalities. Built with OpenZeppelin standards, extensive Hardhat testing, and optimized for security, scalability, and ecosystem growth.",
     image: STAKING_IMG,
     featured: false,
-    tags: ["Solidity", "ERC-20", "Staking", "OpenZeppelin", "Proxy", "Hardhat"],
+    tags: ["Solidity", "ERC-20", "OpenZeppelin", "Upgradeable", "Hardhat", "Ethers.js"],
     highlights: [],
     github: GITHUB_PROFILE,
     live: "#",
@@ -103,19 +104,19 @@ const projects = [
   },
   {
     id: 6,
-    title: "University Fundraising dApp",
-    category: "DeFi Protocol",
+    title: "Go URL Shortener — REST API Service",
+    category: "Backend / Go",
     description:
-      "An Ethereum-based fundraising platform with transparent on-chain campaign management, wallet authentication, and auditable fund tracking — enabling trustless donation flows with full transparency.",
-    image: FUNDRAISE_IMG,
+      "A high-performance URL shortener built in Go for hands-on backend learning. Features REST API endpoints for shortening and redirecting URLs, custom short-code generation, PostgreSQL persistence, caching layer, and clean service-oriented architecture — demonstrating production-ready Golang patterns valued in KSA enterprise teams.",
+    image: BACKEND_IMG,
     featured: false,
-    tags: ["Solidity", "Ethereum", "DApp", "Wallet Auth", "React", "Ethers.js"],
+    tags: ["Golang", "REST APIs", "PostgreSQL", "Microservices", "Redis", "Docker"],
     highlights: [],
     github: GITHUB_PROFILE,
     live: "#",
-    networks: ["Ethereum"],
-    status: "University" as const,
-    accentColor: "#F4C430",
+    networks: ["Backend"],
+    status: "Learning" as const,
+    accentColor: "#00D4FF",
   },
 ];
 
@@ -124,6 +125,7 @@ const statusColors = {
   Mainnet: "#F4C430",
   University: "#A78BFA",
   Personal: "#94A3B8",
+  Learning: "#34D399",
 } as const;
 
 type FilterType =
@@ -132,7 +134,8 @@ type FilterType =
   | "KYC Platform"
   | "Cross-Chain Bridge"
   | "Supply Chain / Web3"
-  | "DeFi / Staking";
+  | "Token / Smart Contracts"
+  | "Backend / Go";
 
 const filters: FilterType[] = [
   "All",
@@ -140,7 +143,8 @@ const filters: FilterType[] = [
   "KYC Platform",
   "Cross-Chain Bridge",
   "Supply Chain / Web3",
-  "DeFi / Staking",
+  "Token / Smart Contracts",
+  "Backend / Go",
 ];
 
 export default function ProjectsSection() {
@@ -179,9 +183,9 @@ export default function ProjectsSection() {
             className="text-base max-w-2xl"
             style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Inter', sans-serif" }}
           >
-            Production blockchain projects spanning on-chain KYC, cross-chain bridges, DeFi vaults,
-            supply chain tracking, and tokenization — deployed across Ethereum, BSC, and XRPL EVM
-            mainnet.
+            Production projects spanning SaaS KYC platforms, Golang backends, cross-chain bridges,
+            forex tokenization, and smart contracts — plus hands-on Go microservices learning,
+            aligned with in-demand backend and blockchain roles across KSA.
           </p>
         </div>
 
@@ -253,7 +257,11 @@ export default function ProjectsSection() {
                       backdropFilter: "blur(8px)",
                     }}
                   >
-                    {project.status === "University" ? "University Project" : project.status}
+                    {project.status === "University"
+                      ? "University Project"
+                      : project.status === "Learning"
+                        ? "Learning Project"
+                        : project.status}
                   </span>
                 </div>
                 <div className="absolute top-3 sm:top-4 right-3 sm:right-4 flex gap-2">

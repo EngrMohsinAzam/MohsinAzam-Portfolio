@@ -9,31 +9,31 @@ const PROFILE_IMG = "/profile.jpeg";
 const highlights = [
   {
     icon: Shield,
-    title: "On-Chain KYC Systems",
-    desc: "Built DigiPort — a SaaS decentralized KYC platform with enterprise RBAC, OpenZeppelin upgradeable contracts, Chainlink-powered USDT billing, and multi-chain wallet integrations.",
+    title: "Blockchain-Powered KYC",
+    desc: "Built DigiPort — a SaaS identity verification platform with Solidity smart contracts, Golang backend APIs, AI document verification, RBAC, and hybrid on-chain/off-chain architecture.",
   },
   {
     icon: Layers,
-    title: "DeFi on XRPL EVM",
-    desc: "Deployed the CFX ecosystem on mainnet — vault factories, oracle routers, and NAV-driven deposit/redemption logic across 6 smart contracts.",
+    title: "DeFi & Tokenization",
+    desc: "Architected CryptoForexBridge (CFX) on XRPL EVM — ERC1155 tokenized forex pairs, vault contracts, oracle-based pricing, and secure minting/redemption workflows.",
   },
   {
     icon: GitBranch,
     title: "Cross-Chain Infrastructure",
-    desc: "Engineered MultX — a Lithosphere-based bridge with 2-of-3 multi-sig validators, Lock & Release settlement, and relayer coordination across ETH & BSC.",
+    desc: "Engineered MultX Bridge for secure ETH ↔ BNB Chain transfers with validator/relayer verification, token locking, minting, and OpenZeppelin-secured smart contracts.",
   },
   {
     icon: Code2,
-    title: "Full-Stack Web3 Delivery",
-    desc: "End-to-end DApp development from Solidity and OpenZeppelin contracts to React, Next.js, Go, and Node.js — production-ready and mainnet-deployed.",
+    title: "Backend & Full-Stack Delivery",
+    desc: "End-to-end delivery from Golang microservices and REST/gRPC APIs to Solidity contracts and React.js dashboards with MetaMask wallet integration.",
   },
 ];
 
 const educationFacts = [
   "BSc Telecom Engineering — UET Mardan (2021 – 2025)",
-  "English — Professional Working Proficiency",
+  "English — Fluent",
   "Urdu — Native",
-  "Available Immediately · Open to Relocation",
+  "Available for Opportunities · Based in KSA",
 ];
 
 function EducationCard({ className = "" }: { className?: string }) {
@@ -113,7 +113,7 @@ export default function AboutSection() {
             >
               <img
                 src={PROFILE_IMG}
-                alt="Mohsin Azam — Blockchain & Web3 Developer"
+                alt="Mohsin Azam — Backend & Blockchain Developer"
                 className="w-full h-full object-cover object-[50%_20%]"
                 draggable={false}
               />
@@ -139,10 +139,10 @@ export default function AboutSection() {
               }}
             >
               I&apos;m <span style={{ color: "#00D4FF", fontWeight: 600 }}>Mohsin Azam</span>, a
-              Blockchain & Web3 Developer with{" "}
-              <span style={{ color: "#00D4FF", fontWeight: 600 }}>3+ years of hands-on experience</span>{" "}
-              architecting production-grade decentralized applications, smart contracts, and DeFi
-              infrastructure across Ethereum, BSC, Polygon, Tron, and XRPL EVM.
+              Backend & Blockchain Developer with{" "}
+              <span style={{ color: "#00D4FF", fontWeight: 600 }}>2+ years of experience</span>{" "}
+              building scalable backend systems, secure smart contracts, DeFi applications,
+              tokenization platforms, and decentralized solutions across Ethereum, BNB Chain, and XRPL EVM.
             </p>
             <p
               className="text-base mb-8 leading-relaxed"
@@ -152,10 +152,10 @@ export default function AboutSection() {
                 lineHeight: 1.8,
               }}
             >
-              Currently building DigiPort at Omnisoft Lahore, with a track record spanning on-chain
-              KYC platforms, cross-chain bridges, vault systems, and tokenization protocols. I deliver
-              full-cycle — from audited Solidity contracts to React, Next.js, Go, and Node.js
-              integration. Based in Lahore, immediately available, and open to relocation across Pakistan.
+              Currently based in KSA with experience developing DigiPort KYC at Omnisoft, spanning
+              Golang microservices, REST & gRPC APIs, cross-chain bridges, forex tokenization, and
+              supply chain dApps. I deliver full-cycle — from backend architecture and audited
+              Solidity contracts to React.js frontends with wallet integration.
             </p>
 
             <EducationCard className="lg:hidden mb-8" />

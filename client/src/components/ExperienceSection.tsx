@@ -5,8 +5,8 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const companyLinks: Record<string, string> = {
   Omnisoft: "https://www.digiportid.com/",
-  "Freelance (Independent)": "https://multxdev.litho.ai/",
-  "Genesis IT Lab": "https://explorer.xrplevm.org/address/0x30C89cfae115d65f309A63f8D18Ad4eC6708F2F9",
+  "Freelance · Bridge Platform": "https://multxdev.litho.ai/",
+  "Genesis Lab": "https://explorer.xrplevm.org/address/0x30C89cfae115d65f309A63f8D18Ad4eC6708F2F9",
 };
 
 const getCompanyLink = (company: string): string => companyLinks[company] || "#";
@@ -14,64 +14,85 @@ const getCompanyLink = (company: string): string => companyLinks[company] || "#"
 const experiences = [
   {
     company: "Omnisoft",
-    role: "Blockchain & Web3 Developer",
+    role: "Blockchain Developer",
     period: "Sep 2025 – Present",
-    location: "Lahore · Onsite",
+    location: "Lahore, Pakistan",
     current: true,
     color: "#00D4FF",
     achievements: [
-      "Architected and developed DigiPort — a SaaS-based decentralized KYC platform enabling secure on-chain identity verification, credential management, and compliance automation.",
-      "Designed enterprise-grade RBAC (Role-Based Access Control) workflows for financial institutions, ensuring secure onboarding and permission management.",
-      "Integrated USDT payment infrastructure with Chainlink price feeds for dynamic real-time fiat-equivalent subscription billing.",
-      "Developed and deployed scalable Solidity smart contracts with upgradeable architecture using OpenZeppelin proxy patterns.",
-      "Delivered end-to-end Web3 integration by connecting audited smart contracts with a production-ready React.js / Next.js frontend.",
-      "Built blockchain interoperability and wallet integrations supporting Ethereum, BSC, Polygon, and EVM-compatible ecosystems.",
+      "Developed and maintained DigiPort KYC — a blockchain-powered SaaS identity verification platform for secure compliance management.",
+      "Designed and implemented Solidity smart contracts for KYC record management, verification workflows, and platform fee handling.",
+      "Built backend APIs and blockchain integrations using Golang to support multi-company onboarding and KYC lifecycle management.",
+      "Integrated AI-based document verification and fraud detection systems to automate user validation processes.",
+      "Implemented RBAC, wallet integration, and transaction monitoring to enhance security and compliance.",
+      "Developed hybrid architecture combining on-chain transparency with off-chain verification for scalability and performance.",
     ],
-    tags: ["DigiPort", "SaaS", "KYC", "RBAC", "Chainlink", "USDT", "OpenZeppelin", "Solidity", "React", "Next.js"],
+    tags: ["DigiPort KYC", "Golang", "Solidity", "SaaS", "RBAC", "AI Verification", "Hybrid Architecture"],
   },
   {
-    company: "Freelance (Independent)",
-    role: "Smart Contract Developer",
-    period: "Dec 2025 – May 2026",
-    location: "Remote · Part-time",
+    company: "Bahria University",
+    role: "Blockchain Developer",
+    period: "May 2025 – Sep 2025",
+    location: "Karachi, Pakistan",
     current: false,
     color: "#F4C430",
     achievements: [
-      "Developed MultX — a Lithosphere-based cross-chain bridge supporting asset transfers between Ethereum and BSC.",
-      "Implemented a 2-of-3 multi-signature validator consensus mechanism with unique hash verification.",
-      "Built Lock & Release settlement logic with relayer coordination for trustless cross-chain messaging.",
-      "Delivered production-ready bridge infrastructure alongside ongoing full-time development at Omnisoft.",
+      "Developed a blockchain-based supply chain management platform for transparent, secure, and tamper-proof product lifecycle tracking.",
+      "Designed and deployed Solidity smart contracts for product registration, ownership transfer, and on-chain verification.",
+      "Built a React.js dashboard integrated with MetaMask wallet connectivity for real-time product tracking.",
+      "Implemented RBAC to secure supply chain operations and improve access management.",
+      "Enhanced supply chain transparency, traceability, and trust using blockchain-based verification mechanisms.",
     ],
-    tags: ["MultX", "Cross-Chain Bridge", "Multi-Sig", "Ethereum", "BSC", "Lithosphere"],
+    tags: ["Supply Chain", "Solidity", "React.js", "MetaMask", "RBAC", "Ethereum"],
   },
   {
-    company: "Bahria University — Karachi Incubation Center",
+    company: "Freelance · Bridge Platform",
     role: "Blockchain Developer",
-    period: "May 2025 – Sep 2025",
-    location: "Karachi · Project-based",
+    period: "Contract",
+    location: "Remote",
     current: false,
-    color: "#00D4FF",
+    color: "#F4C430",
     achievements: [
-      "Built a tamper-proof supply chain tracking dApp on Ethereum for end-to-end product provenance verification.",
-      "Designed on-chain event logging and wallet authentication for transparent stakeholder audit trails.",
-      "Delivered a production-ready DApp for the university incubation program with secure smart contract architecture.",
+      "Developed MultX Bridge — a cross-chain token bridge enabling secure asset transfers between Ethereum and BNB Chain.",
+      "Built and deployed Solidity smart contracts for token locking, minting, burning, and release mechanisms.",
+      "Supported multiple ecosystem tokens including IMAGE, LGPT, and custom blockchain assets across networks.",
+      "Implemented validator and relayer-based verification for secure, reliable, and tamper-proof transaction execution.",
+      "Integrated MetaMask and Web3 wallet functionalities for seamless user interaction and token bridging.",
+      "Designed, tested, and optimized bridge workflows using Hardhat, Ethers.js, and OpenZeppelin libraries.",
     ],
-    tags: ["Supply Chain", "Ethereum", "Provenance", "DApp", "Solidity"],
+    tags: ["MultX Bridge", "Cross-Chain", "Solidity", "Hardhat", "OpenZeppelin", "Ethereum", "BNB Chain"],
   },
   {
-    company: "Genesis IT Lab",
-    role: "Blockchain & DeFi Developer",
+    company: "Genesis Lab",
+    role: "Blockchain Developer",
     period: "Aug 2024 – Apr 2025",
-    location: "Islamabad · Contract",
+    location: "Islamabad, Pakistan",
     current: false,
     color: "#00D4FF",
     achievements: [
-      "Deployed the CFX DeFi ecosystem on XRPL EVM mainnet — 6 smart contracts including CFXToken, CFXSwap, and PairVaultFactory.",
-      "Engineered a factory-cloned vault framework with PET receipt tokens and NAV-driven deposit/redemption logic.",
-      "Built SimpleOracleRouter for accurate XRP-to-CFX exchange rates with on-chain oracle integration.",
-      "Led full-cycle delivery from contract architecture through mainnet deployment and frontend integration.",
+      "Architected CryptoForexBridge (CFX) — a decentralized forex tokenization platform on XRPL EVM.",
+      "Built and deployed Solidity smart contracts enabling stablecoin deposits and ERC1155 tokenized forex pairs.",
+      "Developed vault, minting, redemption, and token management contracts with oracle-based pricing mechanisms.",
+      "Implemented secure financial workflows for token issuance, asset-backed redemption, and token burning.",
+      "Conducted smart contract testing, deployment, and optimization using Hardhat, Chai, and Ethers.js.",
+      "Improved contract security, scalability, and transaction efficiency for decentralized financial operations.",
     ],
-    tags: ["CFX", "XRPL EVM", "DeFi", "Vaults", "Oracles", "Mainnet", "Solidity"],
+    tags: ["CFX", "XRPL EVM", "DeFi", "ERC1155", "Oracles", "Tokenization", "Solidity"],
+  },
+  {
+    company: "Volwest Startup",
+    role: "Smart Contract Developer",
+    period: "Contract",
+    location: "Remote",
+    current: false,
+    color: "#00D4FF",
+    achievements: [
+      "Developed and deployed Olwist Token — an advanced ERC20 with minting, pausing, blacklisting, and expiry management.",
+      "Implemented upgradeable smart contract functionalities using OpenZeppelin standards for security and maintainability.",
+      "Optimized smart contract performance and conducted extensive testing using Hardhat, Ethers.js, and Solidity best practices.",
+      "Designed token infrastructure to support future ecosystem growth, integrations, and scalable blockchain applications.",
+    ],
+    tags: ["Olwist Token", "ERC-20", "OpenZeppelin", "Upgradeable", "Hardhat", "Solidity"],
   },
 ];
 
@@ -129,7 +150,7 @@ function ExperienceCard({ exp, index }: { exp: (typeof experiences)[0]; index: n
                   Current
                 </span>
               )}
-              {exp.company === "Freelance (Independent)" && (
+              {exp.company === "Freelance · Bridge Platform" && (
                 <span
                   className="text-xs px-2 py-0.5 rounded-full"
                   style={{
@@ -139,7 +160,7 @@ function ExperienceCard({ exp, index }: { exp: (typeof experiences)[0]; index: n
                     fontFamily: "'Space Grotesk', sans-serif",
                   }}
                 >
-                  Parallel · Part-time
+                  Freelance
                 </span>
               )}
             </div>
@@ -231,7 +252,7 @@ export default function ExperienceSection() {
 
           <div className="space-y-8">
             {experiences.map((exp, i) => (
-              <ExperienceCard key={exp.company} exp={exp} index={i} />
+              <ExperienceCard key={`${exp.company}-${i}`} exp={exp} index={i} />
             ))}
           </div>
         </div>

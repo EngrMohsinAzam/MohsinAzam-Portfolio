@@ -23,20 +23,20 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Location",
-    value: "Lahore, Pakistan (UTC +5:00)",
+    value: "Kingdom of Saudi Arabia (KSA)",
     href: null,
   },
   {
     icon: Clock,
     label: "Availability",
-    value: "Immediate · open to relocation (Lahore, Islamabad, Karachi)",
+    value: "Open to opportunities across KSA · Remote & Onsite",
     href: null,
   },
 ];
 
 const socialLinks = [
   { icon: Github, label: "GitHub", href: "https://github.com/EngrMohsinAzam", color: "#ffffff" },
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/in/mohsin-azam-b745a5292", color: "#0A66C2" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/mohsin-azam-b745a5292/", color: "#0A66C2" },
   { icon: Mail, label: "Email", href: "mailto:azammohsin816@gmail.com", color: "#00D4FF" },
 ];
 
@@ -106,8 +106,8 @@ export default function ContactSection() {
                 lineHeight: 1.8,
               }}
             >
-              Whether you are building a DeFi protocol, launching a KYC platform,
-              or need a Web3 developer for your next project — I would love to hear from you.
+              Whether you need a backend engineer, blockchain developer, or full-stack Web3
+              specialist for DeFi, KYC, or tokenization — I would love to hear from you.
               I am available immediately for full-time roles and freelance engagements.
             </p>
 
@@ -264,7 +264,7 @@ export default function ContactSection() {
                       required
                       value={form.subject}
                       onChange={e => setForm(f => ({ ...f, subject: e.target.value }))}
-                      placeholder="DeFi Protocol Development"
+                      placeholder="Backend or Blockchain Development"
                       style={inputStyle}
                       onFocus={e => (e.target.style.borderColor = "rgba(0,212,255,0.5)")}
                       onBlur={e => (e.target.style.borderColor = "rgba(0,212,255,0.15)")}

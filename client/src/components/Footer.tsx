@@ -72,7 +72,7 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             {[
               { icon: Github, href: "https://github.com/EngrMohsinAzam", label: "GitHub" },
-              { icon: Linkedin, href: "https://linkedin.com/in/mohsin-azam-b745a5292", label: "LinkedIn" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/mohsin-azam-b745a5292/", label: "LinkedIn" },
               { icon: Mail, href: "mailto:azammohsin816@gmail.com", label: "Email" },
               { icon: Phone, href: "tel:+923118363591", label: "Phone" },
             ].map((s, i) => (
@@ -103,7 +103,7 @@ export default function Footer() {
             fontFamily: "'Inter', sans-serif",
           }}
         >
-          © {new Date().getFullYear()} Mohsin Azam · Blockchain & Web3 Developer · Built with{" "}
+          © {new Date().getFullYear()} Mohsin Azam · Backend & Blockchain Developer · Built with{" "}
           <span style={{ color: "#00D4FF" }}>♦</span> and Solidity
         </div>
       </div>

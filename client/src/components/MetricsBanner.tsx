@@ -8,12 +8,12 @@ import { useEffect, useRef, useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const metrics = [
-  { value: 3, suffix: "+", label: "Years in Web3", color: "#00D4FF" },
-  { value: 6, suffix: "", label: "Production Projects", color: "#F4C430" },
+  { value: 2, suffix: "+", label: "Years Experience", color: "#00D4FF" },
+  { value: 6, suffix: "", label: "Projects Built", color: "#F4C430" },
   { value: 15, suffix: "+", label: "Smart Contracts Built", color: "#00D4FF" },
-  { value: 5, suffix: "", label: "Multi-Chain Networks", color: "#F4C430" },
-  { value: 3, suffix: "", label: "Live Products", color: "#00D4FF" },
-  { value: 3, suffix: "", label: "Mainnet Deployments", color: "#F4C430" },
+  { value: 4, suffix: "", label: "Blockchain Networks", color: "#F4C430" },
+  { value: 2, suffix: "", label: "Live Products", color: "#00D4FF" },
+  { value: 2, suffix: "", label: "Mainnet Deployments", color: "#F4C430" },
 ];
 
 function AnimatedCounter({ target, suffix, color, active }: {

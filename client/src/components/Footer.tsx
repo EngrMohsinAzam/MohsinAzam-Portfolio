@@ -3,7 +3,9 @@
    - Minimal, dark, with teal accent
    - Quick nav links + copyright
    ============================================================ */
-import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { WHATSAPP_HREF, openWhatsApp } from "@/config/site";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 export default function Footer() {
   const scrollTo = (id: string) => {
@@ -74,13 +76,14 @@ export default function Footer() {
               { icon: Github, href: "https://github.com/EngrMohsinAzam", label: "GitHub" },
               { icon: Linkedin, href: "https://www.linkedin.com/in/mohsin-azam-b745a5292/", label: "LinkedIn" },
               { icon: Mail, href: "mailto:azammohsin816@gmail.com", label: "Email" },
-              { icon: Phone, href: "tel:+923118363591", label: "Phone" },
+              { icon: WhatsAppIcon, href: WHATSAPP_HREF, label: "WhatsApp", onClick: openWhatsApp },
             ].map((s, i) => (
               <a
                 key={i}
                 href={s.href}
-                target={s.href.startsWith("mailto:") || s.href.startsWith("tel:") ? undefined : "_blank"}
-                rel={s.href.startsWith("mailto:") || s.href.startsWith("tel:") ? undefined : "noopener noreferrer"}
+                onClick={"onClick" in s ? s.onClick : undefined}
+                target={s.href.startsWith("mailto:") ? undefined : "_blank"}
+                rel={s.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                 aria-label={s.label}
                 className="touch-target rounded-lg transition-all duration-200 active:opacity-80"
                 style={{
@@ -103,8 +106,7 @@ export default function Footer() {
             fontFamily: "'Inter', sans-serif",
           }}
         >
-          © {new Date().getFullYear()} Mohsin Azam · Backend & Blockchain Developer · Built with{" "}
-          <span style={{ color: "#00D4FF" }}>♦</span> and Solidity
+          © {new Date().getFullYear()} Mohsin Azam · Full Stack & Blockchain Developer · Based in KSA
         </div>
       </div>
     </footer>

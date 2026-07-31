@@ -6,28 +6,30 @@
    - Diagonal bottom divider
    ============================================================ */
 import { useEffect, useState } from "react";
-import { Github, Linkedin, Mail, Phone, ChevronDown, ExternalLink } from "lucide-react";
-import { RESUME_URL } from "@/config/site";
+import { Github, Linkedin, Mail, ChevronDown, ExternalLink } from "lucide-react";
+import { RESUME_URL, WHATSAPP_HREF, openWhatsApp } from "@/config/site";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { useTypewriter } from "@/hooks/useTypewriter";
 
 const roles = [
-  "Golang Backend Engineer",
+  "Full Stack & Blockchain Developer",
+  "Golang & Node.js Engineer",
   "Microservices & REST API Developer",
   "Solidity Smart Contract Engineer",
   "Blockchain & Web3 Developer",
   "Fintech & DeFi Specialist",
-  "Cloud-Native Backend Developer",
-  "Enterprise API Architect",
+  "Cloud-Native Full-Stack Developer",
+  "Enterprise Platform Engineer",
 ];
 
 const coreStack = [
-  "Golang · REST APIs · gRPC",
+  "Golang · Node.js · REST APIs",
+  "Next.js · TypeScript · React",
   "Microservices & API Development",
   "Solidity & Smart Contracts",
   "DeFi · Fintech · Tokenization",
   "PostgreSQL · MongoDB · Redis",
   "Docker · Kubernetes · DevOps",
-  "Go URL Shortener · REST API",
 ];
 
 const productionHighlights = [
@@ -39,18 +41,18 @@ const productionHighlights = [
     accent: "#00D4FF",
   },
   {
+    title: "TeleNexus",
+    desc: "Telecom Network Operations Platform",
+    href: "https://tele-nexus.vercel.app/login",
+    tag: "Live",
+    accent: "#00D4FF",
+  },
+  {
     title: "MultX Bridge",
     desc: "Cross-Chain Token Transfer · ETH ↔ BSC",
     href: "https://multxdev.litho.ai/",
     tag: "Live",
     accent: "#00D4FF",
-  },
-  {
-    title: "CryptoForexBridge",
-    desc: "Forex Tokenization on XRPL EVM",
-    href: "https://explorer.xrplevm.org/address/0x30C89cfae115d65f309A63f8D18Ad4eC6708F2F9",
-    tag: "Mainnet",
-    accent: "#F4C430",
   },
 ];
 
@@ -194,7 +196,7 @@ export default function HeroSection() {
                 }}
               >
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 mr-2 animate-pulse" />
-                Open to Opportunities · Based in KSA
+                Open to Full-Time Roles · Based in KSA
               </span>
             </div>
 
@@ -234,9 +236,9 @@ export default function HeroSection() {
                 lineHeight: 1.7,
               }}
             >
-              2+ years building scalable backend systems, secure smart contracts, DeFi applications,
-              and tokenization platforms. Strong in Golang, Solidity, REST APIs, gRPC, microservices,
-              and Web3 integrations — designed for performance, security, and scale.
+              5+ years building full-stack platforms, secure smart contracts, and enterprise systems.
+              Strong in Golang, Node.js, Next.js, Solidity, REST APIs, microservices, and Web3 —
+              delivering production-ready solutions for teams across KSA.
             </p>
 
             {/* CTA buttons */}
@@ -298,8 +300,11 @@ export default function HeroSection() {
                 <Mail size={18} />
               </a>
               <a
-                href="tel:+923118363591"
-                aria-label="Call phone"
+                href={WHATSAPP_HREF}
+                onClick={openWhatsApp}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Chat on WhatsApp"
                 className="touch-target rounded-lg transition-all duration-200 active:opacity-80"
                 style={{
                   background: "rgba(255,255,255,0.05)",
@@ -307,7 +312,7 @@ export default function HeroSection() {
                   color: "rgba(255,255,255,0.7)",
                 }}
               >
-                <Phone size={18} />
+                <WhatsAppIcon size={18} />
               </a>
             </div>
 

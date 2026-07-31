@@ -4,7 +4,7 @@
    ============================================================ */
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { RESUME_URL } from "@/config/site";
+import { RESUME_URL, WHATSAPP_HREF, openWhatsApp } from "@/config/site";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -163,7 +163,9 @@ export default function Navbar() {
             </a>
             <div className="navbar-mobile-contact">
               <a href="mailto:azammohsin816@gmail.com">Email</a>
-              <a href="tel:+923118363591">Call</a>
+              <a href={WHATSAPP_HREF} onClick={openWhatsApp} target="_blank" rel="noopener noreferrer">
+                WhatsApp
+              </a>
             </div>
           </div>
         </>

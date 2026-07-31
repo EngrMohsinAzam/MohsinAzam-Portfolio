@@ -5,7 +5,9 @@
    - Social links with hover glow effects
    ============================================================ */
 import { useState } from "react";
-import { Mail, MapPin, Send, Github, Linkedin, Phone, Clock } from "lucide-react";
+import { Mail, MapPin, Send, Github, Linkedin, Clock } from "lucide-react";
+import { WHATSAPP_DISPLAY, WHATSAPP_HREF, openWhatsApp } from "@/config/site";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 const contactInfo = [
   {
@@ -15,10 +17,11 @@ const contactInfo = [
     href: "mailto:azammohsin816@gmail.com",
   },
   {
-    icon: Phone,
-    label: "Phone",
-    value: "+92 311 8363591",
-    href: "tel:+923118363591",
+    icon: WhatsAppIcon,
+    label: "WhatsApp",
+    value: WHATSAPP_DISPLAY,
+    href: WHATSAPP_HREF,
+    onClick: openWhatsApp,
   },
   {
     icon: MapPin,
@@ -106,9 +109,9 @@ export default function ContactSection() {
                 lineHeight: 1.8,
               }}
             >
-              Whether you need a backend engineer, blockchain developer, or full-stack Web3
-              specialist for DeFi, KYC, or tokenization — I would love to hear from you.
-              I am available immediately for full-time roles and freelance engagements.
+              Looking for a Full Stack & Blockchain Developer for enterprise platforms, DeFi, KYC,
+              or telecom systems — I would love to hear from you. Available for full-time roles
+              across KSA, onsite or remote.
             </p>
 
             {/* Contact details */}
@@ -131,6 +134,9 @@ export default function ContactSection() {
                     {item.href ? (
                       <a
                         href={item.href}
+                        onClick={"onClick" in item ? item.onClick : undefined}
+                        target={item.href.startsWith("mailto:") ? undefined : "_blank"}
+                        rel={item.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                         className="text-sm hover:text-teal-400 transition-colors"
                         style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'Inter', sans-serif" }}
                       >

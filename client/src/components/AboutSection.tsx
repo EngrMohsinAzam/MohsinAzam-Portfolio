@@ -24,8 +24,8 @@ const highlights = [
   },
   {
     icon: Code2,
-    title: "Backend & Full-Stack Delivery",
-    desc: "End-to-end delivery from Golang microservices and REST/gRPC APIs to Solidity contracts and React.js dashboards with MetaMask wallet integration.",
+    title: "Full-Stack Delivery",
+    desc: "End-to-end delivery with Golang and Node.js backends, Next.js/React frontends, REST/gRPC APIs, PostgreSQL & Redis — plus Solidity contracts and Web3 wallet integrations.",
   },
 ];
 
@@ -33,7 +33,7 @@ const educationFacts = [
   "BSc Telecom Engineering — UET Mardan (2021 – 2025)",
   "English — Fluent",
   "Urdu — Native",
-  "Available for Opportunities · Based in KSA",
+  "Open to Full-Time Roles · Based in KSA",
 ];
 
 function EducationCard({ className = "" }: { className?: string }) {
@@ -113,7 +113,7 @@ export default function AboutSection() {
             >
               <img
                 src={PROFILE_IMG}
-                alt="Mohsin Azam — Backend & Blockchain Developer"
+                alt="Mohsin Azam — Full Stack & Blockchain Developer"
                 className="w-full h-full object-cover object-[50%_20%]"
                 draggable={false}
               />
@@ -139,10 +139,10 @@ export default function AboutSection() {
               }}
             >
               I&apos;m <span style={{ color: "#00D4FF", fontWeight: 600 }}>Mohsin Azam</span>, a
-              Backend & Blockchain Developer with{" "}
-              <span style={{ color: "#00D4FF", fontWeight: 600 }}>2+ years of experience</span>{" "}
-              building scalable backend systems, secure smart contracts, DeFi applications,
-              tokenization platforms, and decentralized solutions across Ethereum, BNB Chain, and XRPL EVM.
+              Full Stack & Blockchain Developer with{" "}
+              <span style={{ color: "#00D4FF", fontWeight: 600 }}>5+ years of experience</span>{" "}
+              building scalable web platforms, Golang and Node.js backends, secure smart contracts,
+              DeFi applications, and enterprise solutions across Ethereum, BNB Chain, and XRPL EVM.
             </p>
             <p
               className="text-base mb-8 leading-relaxed"
@@ -152,10 +152,11 @@ export default function AboutSection() {
                 lineHeight: 1.8,
               }}
             >
-              Currently based in KSA with experience developing DigiPort KYC at Omnisoft, spanning
-              Golang microservices, REST & gRPC APIs, cross-chain bridges, forex tokenization, and
-              supply chain dApps. I deliver full-cycle — from backend architecture and audited
-              Solidity contracts to React.js frontends with wallet integration.
+              Based in KSA and open to full-time opportunities. Experience includes DigiPort KYC at
+              Omnisoft and TeleNexus — a telecom operations platform on Node.js and Next.js. My work
+              spans full-stack delivery, Golang & Node.js microservices, REST APIs, cross-chain
+              bridges, forex tokenization, and supply chain dApps — from backend architecture and
+              audited Solidity contracts to React/Next.js frontends.
             </p>
 
             <EducationCard className="lg:hidden mb-8" />

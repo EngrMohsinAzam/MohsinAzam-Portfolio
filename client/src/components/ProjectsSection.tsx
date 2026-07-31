@@ -11,6 +11,7 @@ const SUPPLY_IMG = "/projects/supply-chain.jpg";
 const STAKING_IMG = "/projects/token-staking.jpg";
 
 const BACKEND_IMG = "/projects/fundraising-dapp.jpg";
+const TELENEXUS_IMG = "/projects/telenexus.jpg";
 
 const GITHUB_PROFILE = "https://github.com/EngrMohsinAzam";
 
@@ -40,6 +41,22 @@ const projects = [
   },
   {
     id: 2,
+    title: "TeleNexus — Telecom Network Operations Platform",
+    category: "Telecom Platform",
+    description:
+      "A modern telecom network operations and enterprise management platform built with Next.js, Node.js, TypeScript, PostgreSQL, and Redis. Delivers role-based access control, customer and service management, billing, support tickets, network monitoring, analytics dashboards, and secure authentication — designed for ISPs, telecom operators, and enterprise service providers.",
+    image: TELENEXUS_IMG,
+    featured: false,
+    tags: ["Node.js", "Next.js", "TypeScript", "PostgreSQL", "Redis", "REST APIs", "RBAC"],
+    highlights: [],
+    github: "https://github.com/EngrMohsinAzam/TeleNexus",
+    live: "https://tele-nexus.vercel.app/login",
+    networks: ["Next.js", "Node.js"],
+    status: "Live" as const,
+    accentColor: "#00D4FF",
+  },
+  {
+    id: 3,
     title: "MultX Bridge — Cross-Chain Token Transfer Platform",
     category: "Cross-Chain Bridge",
     description:
@@ -55,7 +72,7 @@ const projects = [
     accentColor: "#00D4FF",
   },
   {
-    id: 3,
+    id: 4,
     title: "CryptoForexBridge (CFX) — Forex Tokenization Platform",
     category: "DeFi Protocol",
     description:
@@ -71,7 +88,7 @@ const projects = [
     accentColor: "#F4C430",
   },
   {
-    id: 4,
+    id: 5,
     title: "Decentralized Supply Chain Tracker",
     category: "Supply Chain / Web3",
     description:
@@ -87,7 +104,7 @@ const projects = [
     accentColor: "#F4C430",
   },
   {
-    id: 5,
+    id: 6,
     title: "Olwist Token — Advanced ERC20",
     category: "Token / Smart Contracts",
     description:
@@ -103,7 +120,7 @@ const projects = [
     accentColor: "#00D4FF",
   },
   {
-    id: 6,
+    id: 7,
     title: "Go URL Shortener — REST API Service",
     category: "Backend / Go",
     description:
@@ -132,6 +149,7 @@ type FilterType =
   | "All"
   | "DeFi Protocol"
   | "KYC Platform"
+  | "Telecom Platform"
   | "Cross-Chain Bridge"
   | "Supply Chain / Web3"
   | "Token / Smart Contracts"
@@ -141,6 +159,7 @@ const filters: FilterType[] = [
   "All",
   "DeFi Protocol",
   "KYC Platform",
+  "Telecom Platform",
   "Cross-Chain Bridge",
   "Supply Chain / Web3",
   "Token / Smart Contracts",
@@ -183,9 +202,9 @@ export default function ProjectsSection() {
             className="text-base max-w-2xl"
             style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Inter', sans-serif" }}
           >
-            Production projects spanning SaaS KYC platforms, Golang backends, cross-chain bridges,
-            forex tokenization, and smart contracts — plus hands-on Go microservices learning,
-            aligned with in-demand backend and blockchain roles across KSA.
+            Production projects spanning SaaS KYC platforms, telecom operations, full-stack systems,
+            cross-chain bridges, forex tokenization, and smart contracts — aligned with full-stack
+            and blockchain roles across KSA.
           </p>
         </div>
 

@@ -10,6 +10,7 @@ const skillCategories = [
     icon: "⬡",
     skills: [
       { name: "Golang", level: 88 },
+      { name: "Node.js", level: 86 },
       { name: "REST APIs & API Development", level: 90 },
       { name: "gRPC", level: 82 },
       { name: "Microservices", level: 85 },
@@ -33,11 +34,11 @@ const skillCategories = [
     color: "#00D4FF",
     icon: "◇",
     skills: [
-      { name: "React.js & JavaScript", level: 85 },
+      { name: "React.js & Next.js", level: 86 },
+      { name: "TypeScript & JavaScript", level: 85 },
       { name: "Ethers.js", level: 88 },
       { name: "Wallet Integration", level: 88 },
       { name: "Hardhat & Foundry", level: 90 },
-      { name: "OpenZeppelin & Chainlink", level: 88 },
     ],
   },
   {
@@ -56,6 +57,9 @@ const skillCategories = [
 
 const techBadges = [
   "Golang",
+  "Node.js",
+  "Next.js",
+  "TypeScript",
   "REST APIs",
   "gRPC",
   "Microservices",
@@ -71,6 +75,7 @@ const techBadges = [
   "Ethers.js",
   "PostgreSQL",
   "MongoDB",
+  "Redis",
   "Docker",
   "Kubernetes",
   "Hardhat",

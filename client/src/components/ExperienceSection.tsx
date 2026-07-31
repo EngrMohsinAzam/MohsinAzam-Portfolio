@@ -5,6 +5,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const companyLinks: Record<string, string> = {
   Omnisoft: "https://www.digiportid.com/",
+  TeleNexus: "https://tele-nexus.vercel.app/login",
   "Freelance · Bridge Platform": "https://multxdev.litho.ai/",
   "Genesis Lab": "https://explorer.xrplevm.org/address/0x30C89cfae115d65f309A63f8D18Ad4eC6708F2F9",
 };
@@ -28,6 +29,21 @@ const experiences = [
       "Developed hybrid architecture combining on-chain transparency with off-chain verification for scalability and performance.",
     ],
     tags: ["DigiPort KYC", "Golang", "Solidity", "SaaS", "RBAC", "AI Verification", "Hybrid Architecture"],
+  },
+  {
+    company: "TeleNexus",
+    role: "Full-Stack Developer",
+    period: "Personal Project",
+    location: "Remote",
+    current: false,
+    color: "#00D4FF",
+    achievements: [
+      "Built TeleNexus — a modern telecom network operations and enterprise management platform for ISPs and service providers.",
+      "Designed a scalable Node.js backend with clean REST APIs, PostgreSQL persistence, and Redis caching for high performance.",
+      "Developed a responsive Next.js and TypeScript frontend with analytics dashboards, billing, and support ticket workflows.",
+      "Implemented role-based access control, secure authentication, customer/service management, and network monitoring modules.",
+    ],
+    tags: ["Node.js", "Next.js", "TypeScript", "PostgreSQL", "Redis", "RBAC", "REST APIs"],
   },
   {
     company: "Bahria University",

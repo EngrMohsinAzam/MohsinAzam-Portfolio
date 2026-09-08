@@ -26,13 +26,13 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Location",
-    value: "Kingdom of Saudi Arabia (KSA)",
+    value: "Riyadh, Saudi Arabia (KSA)",
     href: null,
   },
   {
     icon: Clock,
     label: "Availability",
-    value: "Open to opportunities across KSA · Remote & Onsite",
+    value: "Open to full-time roles across KSA · Remote & Onsite",
     href: null,
   },
 ];
@@ -109,9 +109,9 @@ export default function ContactSection() {
                 lineHeight: 1.8,
               }}
             >
-              Looking for a Full Stack & Blockchain Developer for enterprise platforms, DeFi, KYC,
+              Looking for a Full Stack & Backend Engineer for enterprise platforms, FinTech, KYC,
               or telecom systems — I would love to hear from you. Available for full-time roles
-              across KSA, onsite or remote.
+              across KSA, onsite or remote. Blockchain and smart contract experience available as needed.
             </p>
 
             {/* Contact details */}
@@ -270,7 +270,7 @@ export default function ContactSection() {
                       required
                       value={form.subject}
                       onChange={e => setForm(f => ({ ...f, subject: e.target.value }))}
-                      placeholder="Backend or Blockchain Development"
+                      placeholder="Full Stack or Backend Development"
                       style={inputStyle}
                       onFocus={e => (e.target.style.borderColor = "rgba(0,212,255,0.5)")}
                       onBlur={e => (e.target.style.borderColor = "rgba(0,212,255,0.15)")}

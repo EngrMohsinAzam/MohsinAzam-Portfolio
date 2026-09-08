@@ -8,24 +8,24 @@ const PROFILE_IMG = "/profile.jpeg";
 
 const highlights = [
   {
-    icon: Shield,
-    title: "Blockchain-Powered KYC",
-    desc: "Built DigiPort — a SaaS identity verification platform with Solidity smart contracts, Golang backend APIs, AI document verification, RBAC, and hybrid on-chain/off-chain architecture.",
-  },
-  {
-    icon: Layers,
-    title: "DeFi & Tokenization",
-    desc: "Architected CryptoForexBridge (CFX) on XRPL EVM — ERC1155 tokenized forex pairs, vault contracts, oracle-based pricing, and secure minting/redemption workflows.",
-  },
-  {
-    icon: GitBranch,
-    title: "Cross-Chain Infrastructure",
-    desc: "Engineered MultX Bridge for secure ETH ↔ BNB Chain transfers with validator/relayer verification, token locking, minting, and OpenZeppelin-secured smart contracts.",
-  },
-  {
     icon: Code2,
     title: "Full-Stack Delivery",
     desc: "End-to-end delivery with Golang and Node.js backends, Next.js/React frontends, REST/gRPC APIs, PostgreSQL & Redis — plus Solidity contracts and Web3 wallet integrations.",
+  },
+  {
+    icon: Shield,
+    title: "Backend Engineering",
+    desc: "Scalable Golang and Node.js services with clean REST APIs, microservices patterns, PostgreSQL & Redis, Docker, secure authentication, and RBAC for enterprise platforms.",
+  },
+  {
+    icon: Layers,
+    title: "Blockchain & DeFi",
+    desc: "Production smart contracts and DeFi systems — DigiPort KYC, CryptoForexBridge (CFX) on XRPL EVM, ERC1155 tokenization, vaults, oracles, and secure financial workflows.",
+  },
+  {
+    icon: GitBranch,
+    title: "Cross-Chain & Tokenization",
+    desc: "Engineered MultX Bridge for ETH ↔ BNB Chain transfers and tokenized asset workflows with validator/relayer verification, OpenZeppelin standards, and wallet integrations.",
   },
 ];
 
@@ -33,7 +33,7 @@ const educationFacts = [
   "BSc Telecom Engineering — UET Mardan (2021 – 2025)",
   "English — Fluent",
   "Urdu — Native",
-  "Open to Full-Time Roles · Based in KSA",
+  "Open to Full-Time Roles · Based in Riyadh, KSA",
 ];
 
 function EducationCard({ className = "" }: { className?: string }) {
@@ -113,7 +113,7 @@ export default function AboutSection() {
             >
               <img
                 src={PROFILE_IMG}
-                alt="Mohsin Azam — Full Stack & Blockchain Developer"
+                alt="Mohsin Azam — Full Stack & Backend Engineer"
                 className="w-full h-full object-cover object-[50%_20%]"
                 draggable={false}
               />
@@ -139,10 +139,10 @@ export default function AboutSection() {
               }}
             >
               I&apos;m <span style={{ color: "#00D4FF", fontWeight: 600 }}>Mohsin Azam</span>, a
-              Full Stack & Blockchain Developer with{" "}
+              Full Stack & Backend Engineer with{" "}
               <span style={{ color: "#00D4FF", fontWeight: 600 }}>5+ years of experience</span>{" "}
-              building scalable web platforms, Golang and Node.js backends, secure smart contracts,
-              DeFi applications, and enterprise solutions across Ethereum, BNB Chain, and XRPL EVM.
+              building scalable, secure, and high-performance applications with Golang, Node.js,
+              React.js, Next.js, REST APIs, microservices, PostgreSQL, MongoDB, Docker, and Kubernetes.
             </p>
             <p
               className="text-base mb-8 leading-relaxed"
@@ -152,11 +152,10 @@ export default function AboutSection() {
                 lineHeight: 1.8,
               }}
             >
-              Based in KSA and open to full-time opportunities. Experience includes DigiPort KYC at
-              Omnisoft and TeleNexus — a telecom operations platform on Node.js and Next.js. My work
-              spans full-stack delivery, Golang & Node.js microservices, REST APIs, cross-chain
-              bridges, forex tokenization, and supply chain dApps — from backend architecture and
-              audited Solidity contracts to React/Next.js frontends.
+              Based in Riyadh, Saudi Arabia and open to full-time opportunities. Experience includes
+              DigiPort KYC, TeleNexus, and Banking Platform at Omnisoft, plus blockchain projects in
+              DeFi, cross-chain bridges, and smart contracts. I deliver production-ready backend
+              architectures and end-to-end solutions for FinTech, SaaS, and decentralized applications.
             </p>
 
             <EducationCard className="lg:hidden mb-8" />

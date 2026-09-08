@@ -4,7 +4,9 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const companyLinks: Record<string, string> = {
-  Omnisoft: "https://www.digiportid.com/",
+  Omnisoft: "https://kyc-platform-blush.vercel.app/",
+  "Banking Platform": "https://banking-plateform.vercel.app/",
+  "Murabaha Engine": "https://murabaha-engine.vercel.app/login",
   TeleNexus: "https://tele-nexus.vercel.app/login",
   "Freelance · Bridge Platform": "https://multxdev.litho.ai/",
   "Genesis Lab": "https://explorer.xrplevm.org/address/0x30C89cfae115d65f309A63f8D18Ad4eC6708F2F9",
@@ -15,20 +17,48 @@ const getCompanyLink = (company: string): string => companyLinks[company] || "#"
 const experiences = [
   {
     company: "Omnisoft",
-    role: "Blockchain Developer",
+    role: "Full Stack & Backend Engineer",
     period: "Sep 2025 – Present",
-    location: "Lahore, Pakistan",
+    location: "Riyadh, Saudi Arabia",
     current: true,
     color: "#00D4FF",
     achievements: [
-      "Developed and maintained DigiPort KYC — a blockchain-powered SaaS identity verification platform for secure compliance management.",
-      "Designed and implemented Solidity smart contracts for KYC record management, verification workflows, and platform fee handling.",
-      "Built backend APIs and blockchain integrations using Golang to support multi-company onboarding and KYC lifecycle management.",
-      "Integrated AI-based document verification and fraud detection systems to automate user validation processes.",
-      "Implemented RBAC, wallet integration, and transaction monitoring to enhance security and compliance.",
-      "Developed hybrid architecture combining on-chain transparency with off-chain verification for scalability and performance.",
+      "Engineered DigiPort KYC — a scalable SaaS identity verification platform using Golang, Solidity, REST APIs, and Web3 for multi-company compliance.",
+      "Developed TeleNexus telecom management platform with Golang/Node.js backends, REST APIs, authentication, and full-stack workflows.",
+      "Built a secure banking web platform for account management, transaction processing, and digital financial operations.",
+      "Integrated AI document verification, fraud detection, RBAC, and hybrid on-chain/off-chain architecture for performance and security.",
     ],
-    tags: ["DigiPort KYC", "Golang", "Solidity", "SaaS", "RBAC", "AI Verification", "Hybrid Architecture"],
+    tags: ["Golang", "Node.js", "DigiPort KYC", "TeleNexus", "Banking", "REST APIs", "RBAC"],
+  },
+  {
+    company: "Banking Platform",
+    role: "Backend Engineer",
+    period: "Personal Project",
+    location: "Remote",
+    current: false,
+    color: "#F4C430",
+    achievements: [
+      "Built an enterprise-grade digital banking platform with Golang, PostgreSQL, Redis, Docker, and REST APIs.",
+      "Implemented customer onboarding, account management, fund transfers, transaction history, and beneficiary workflows.",
+      "Designed scalable backend architecture with caching, secure authentication, and role-based access control.",
+      "Delivered loan and card service modules with notifications and security practices aligned to modern banking systems.",
+    ],
+    tags: ["Golang", "PostgreSQL", "Redis", "Docker", "REST APIs", "RBAC", "Fintech"],
+  },
+  {
+    company: "Murabaha Engine",
+    role: "Backend Engineer",
+    period: "Personal Project",
+    location: "Remote",
+    current: false,
+    color: "#F4C430",
+    achievements: [
+      "Built Murabaha Engine — a Shariah-compliant financing platform for Islamic banks and fintech institutions.",
+      "Automated Murabaha workflows including financing requests, asset purchase/sale, installment schedules, and profit calculations.",
+      "Implemented payment tracking, customer management, approval workflows, audit logging, and financial reporting.",
+      "Designed scalable Golang architecture with PostgreSQL, Redis, Docker, secure authentication, and RBAC.",
+    ],
+    tags: ["Golang", "PostgreSQL", "Redis", "Docker", "REST APIs", "RBAC", "Islamic Finance"],
   },
   {
     company: "TeleNexus",

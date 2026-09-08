@@ -12,33 +12,46 @@ import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { useTypewriter } from "@/hooks/useTypewriter";
 
 const roles = [
-  "Full Stack & Blockchain Developer",
-  "Golang & Node.js Engineer",
-  "Microservices & REST API Developer",
-  "Solidity Smart Contract Engineer",
-  "Blockchain & Web3 Developer",
-  "Fintech & DeFi Specialist",
+  "Full Stack & Backend Engineer",
+  "Golang & Node.js Developer",
+  "Microservices & REST API Engineer",
   "Cloud-Native Full-Stack Developer",
-  "Enterprise Platform Engineer",
+  "Enterprise Backend Engineer",
+  "Fintech Platform Developer",
+  "Blockchain & Smart Contract Engineer",
 ];
 
 const coreStack = [
   "Golang · Node.js · REST APIs",
   "Next.js · TypeScript · React",
   "Microservices & API Development",
-  "Solidity & Smart Contracts",
-  "DeFi · Fintech · Tokenization",
   "PostgreSQL · MongoDB · Redis",
   "Docker · Kubernetes · DevOps",
+  "Solidity · Web3 · Smart Contracts",
+  "DeFi · Fintech · Tokenization",
 ];
 
 const productionHighlights = [
   {
     title: "DigiPort KYC",
     desc: "SaaS Identity Verification Platform",
-    href: "https://www.digiportid.com/",
+    href: "https://kyc-platform-blush.vercel.app/",
     tag: "Live",
     accent: "#00D4FF",
+  },
+  {
+    title: "Banking Platform",
+    desc: "Core Digital Banking · Golang",
+    href: "https://banking-plateform.vercel.app/",
+    tag: "Live",
+    accent: "#F4C430",
+  },
+  {
+    title: "Murabaha Engine",
+    desc: "Shariah-Compliant Financing · Golang",
+    href: "https://murabaha-engine.vercel.app/login",
+    tag: "Live",
+    accent: "#F4C430",
   },
   {
     title: "TeleNexus",
@@ -53,6 +66,13 @@ const productionHighlights = [
     href: "https://multxdev.litho.ai/",
     tag: "Live",
     accent: "#00D4FF",
+  },
+  {
+    title: "CryptoForexBridge",
+    desc: "Forex Tokenization on XRPL EVM",
+    href: "https://explorer.xrplevm.org/address/0x30C89cfae115d65f309A63f8D18Ad4eC6708F2F9",
+    tag: "Mainnet",
+    accent: "#F4C430",
   },
 ];
 
@@ -96,9 +116,9 @@ function CoreSkillsPanel() {
 
 function ProductionHighlightsPanel() {
   return (
-    <div className="glass-card hero-card-3d rounded-xl p-5 w-full">
+    <div className="glass-card hero-card-3d rounded-xl p-4 sm:p-5 w-full min-h-0 flex flex-col flex-1">
       <p
-        className="text-xs mb-3"
+        className="text-xs mb-2.5 shrink-0"
         style={{
           fontFamily: "'Space Grotesk', sans-serif",
           color: "rgba(255,255,255,0.4)",
@@ -108,14 +128,14 @@ function ProductionHighlightsPanel() {
       >
         Production Highlights
       </p>
-      <div className="space-y-2">
+      <div className="hero-highlights-scroll space-y-2 min-h-0">
         {productionHighlights.map((item) => (
           <a
             key={item.title}
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 p-3 rounded-lg transition-all duration-200 group min-h-[56px] active:opacity-80"
+            className="flex items-center gap-3 p-2.5 sm:p-3 rounded-lg transition-all duration-200 group min-h-[52px] active:opacity-80"
             style={{
               background: "rgba(255,255,255,0.03)",
               border: "1px solid rgba(0, 212, 255, 0.1)",
@@ -179,13 +199,13 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center overflow-x-hidden">
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 max-w-7xl pt-20 sm:pt-24 pb-24 sm:pb-16">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-10 items-start">
+    <section className="relative min-h-[100dvh] flex items-start overflow-x-hidden">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 max-w-7xl pt-20 lg:pt-20 pb-14 lg:pb-8 w-full">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-start">
           {/* Left: Text */}
           <div className="animate-fade-in-up">
             {/* Available badge */}
-            <div className="mb-6">
+            <div className="mb-4 lg:mb-5">
               <span
                 className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 px-3 py-2 rounded-full text-xs font-medium max-w-full"
                 style={{
@@ -196,13 +216,13 @@ export default function HeroSection() {
                 }}
               >
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 mr-2 animate-pulse" />
-                Open to Full-Time Roles · Based in KSA
+                Open to Full-Time Roles · Based in Riyadh, KSA
               </span>
             </div>
 
             {/* Name */}
             <h1
-              className="text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-4 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-3 lg:mb-4 leading-tight"
               style={{
                 fontFamily: "'Syne', sans-serif",
                 color: "#ffffff",
@@ -216,7 +236,7 @@ export default function HeroSection() {
 
             {/* Typewriter role */}
             <div
-              className="text-lg sm:text-xl lg:text-2xl mb-6 min-h-[3rem] sm:min-h-[2.75rem] lg:min-h-[3.25rem]"
+              className="text-lg sm:text-xl lg:text-2xl mb-4 lg:mb-5 min-h-[2.75rem] lg:min-h-[3rem]"
               style={{
                 fontFamily: "'Space Grotesk', sans-serif",
                 fontWeight: 500,
@@ -229,20 +249,20 @@ export default function HeroSection() {
 
             {/* Bio */}
             <p
-              className="text-base lg:text-lg mb-8 max-w-md leading-relaxed"
+              className="text-base lg:text-lg mb-6 lg:mb-7 max-w-md leading-relaxed"
               style={{
                 fontFamily: "'Inter', sans-serif",
                 color: "rgba(255,255,255,0.55)",
                 lineHeight: 1.7,
               }}
             >
-              5+ years building full-stack platforms, secure smart contracts, and enterprise systems.
-              Strong in Golang, Node.js, Next.js, Solidity, REST APIs, microservices, and Web3 —
-              delivering production-ready solutions for teams across KSA.
+              5+ years building scalable full-stack and backend systems for FinTech, SaaS, and
+              enterprise platforms. Strong in Golang, Node.js, Next.js, REST APIs, microservices,
+              and databases — with additional experience in Solidity, smart contracts, and Web3.
             </p>
 
             {/* CTA buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 lg:mb-8">
               <button
                 onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
                 className="btn-teal px-7 py-3.5 rounded-lg text-sm font-semibold w-full sm:w-auto min-h-[48px]"
@@ -323,14 +343,14 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right: Skills + production highlights */}
+          {/* Right: Skills + production highlights — fits in viewport */}
           <div
-            className="hidden lg:flex flex-col gap-4 animate-fade-in-up w-full lg:mt-6"
+            className="hidden lg:flex flex-col gap-3 animate-fade-in-up w-full self-start lg:max-h-[calc(100dvh-6.5rem)]"
             style={{ animationDelay: "0.2s" }}
           >
-            <div className="glass-card hero-card-3d rounded-xl p-6 w-full">
+            <div className="glass-card hero-card-3d rounded-xl p-4 w-full shrink-0">
               <p
-                className="text-xs mb-3"
+                className="text-xs mb-2.5"
                 style={{
                   fontFamily: "'Space Grotesk', sans-serif",
                   color: "rgba(255,255,255,0.4)",

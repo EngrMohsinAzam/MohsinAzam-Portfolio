@@ -12,6 +12,8 @@ const STAKING_IMG = "/projects/token-staking.jpg";
 
 const BACKEND_IMG = "/projects/fundraising-dapp.jpg";
 const TELENEXUS_IMG = "/projects/telenexus.jpg";
+const BANKING_IMG = "/projects/banking-platform.jpg";
+const MURABAHA_IMG = "/projects/murabaha-engine.jpg";
 
 const GITHUB_PROFILE = "https://github.com/EngrMohsinAzam";
 
@@ -21,7 +23,7 @@ const projects = [
     title: "DigiPort KYC — SaaS Identity Verification Platform",
     category: "KYC Platform",
     description:
-      "A blockchain-powered SaaS KYC platform for secure identity verification and compliance management. Features Solidity smart contracts for KYC workflows, Golang backend APIs, AI document verification, RBAC, wallet integration, and hybrid on-chain/off-chain architecture — live at Omnisoft Lahore.",
+      "A blockchain-powered SaaS KYC platform for secure identity verification and compliance management. Features Solidity smart contracts for KYC workflows, Golang backend APIs, AI document verification, RBAC, wallet integration, and hybrid on-chain/off-chain architecture — built at Omnisoft.",
     image: KYC_IMG,
     featured: true,
     tags: ["Golang", "Solidity", "SaaS", "KYC", "RBAC", "AI Verification", "React.js"],
@@ -31,16 +33,48 @@ const projects = [
       "Golang backend APIs supporting multi-company onboarding and KYC lifecycle",
       "AI-based document verification and fraud detection for automated validation",
       "Hybrid architecture combining on-chain transparency with off-chain verification",
-      "Live production deployment at digiportid.com",
+      "Live production deployment with multi-company KYC workflows",
     ],
     github: GITHUB_PROFILE,
-    live: "https://www.digiportid.com/",
+    live: "https://kyc-platform-blush.vercel.app/",
     networks: ["Ethereum", "EVM"],
     status: "Live" as const,
     accentColor: "#00D4FF",
   },
   {
     id: 2,
+    title: "Banking Platform — Core Digital Banking System",
+    category: "Banking / Fintech",
+    description:
+      "A secure, enterprise-grade digital banking system built with Golang, PostgreSQL, Redis, Docker, and REST APIs. Supports customer onboarding, account management, secure authentication, fund transfers, transaction history, beneficiary management, loan and card services, notifications, and role-based access control — designed with scalable backend architecture and security best practices for modern banking.",
+    image: BANKING_IMG,
+    featured: false,
+    tags: ["Golang", "PostgreSQL", "Redis", "Docker", "REST APIs", "RBAC", "Fintech"],
+    highlights: [],
+    github: "https://github.com/EngrMohsinAzam/Banking-Plateform",
+    live: "https://banking-plateform.vercel.app/",
+    networks: ["Golang", "KSA"],
+    status: "Live" as const,
+    accentColor: "#F4C430",
+  },
+  {
+    id: 3,
+    title: "Murabaha Engine — Shariah-Compliant Financing Platform",
+    category: "Islamic Fintech",
+    description:
+      "A backend system for managing Shariah-compliant Murabaha financing workflows. Built with Golang, PostgreSQL, Redis, Docker, and REST APIs, it automates financing requests, asset purchase and sale processes, installment schedules, profit calculations, payment tracking, customer management, and approval workflows — with secure authentication, RBAC, audit logging, and financial reporting for Islamic banks and fintech institutions.",
+    image: MURABAHA_IMG,
+    featured: false,
+    tags: ["Golang", "PostgreSQL", "Redis", "Docker", "REST APIs", "RBAC", "Islamic Finance"],
+    highlights: [],
+    github: "https://github.com/EngrMohsinAzam/Murabaha-Engine",
+    live: "https://murabaha-engine.vercel.app/login",
+    networks: ["Golang", "KSA"],
+    status: "Live" as const,
+    accentColor: "#F4C430",
+  },
+  {
+    id: 4,
     title: "TeleNexus — Telecom Network Operations Platform",
     category: "Telecom Platform",
     description:
@@ -56,7 +90,7 @@ const projects = [
     accentColor: "#00D4FF",
   },
   {
-    id: 3,
+    id: 5,
     title: "MultX Bridge — Cross-Chain Token Transfer Platform",
     category: "Cross-Chain Bridge",
     description:
@@ -72,7 +106,7 @@ const projects = [
     accentColor: "#00D4FF",
   },
   {
-    id: 4,
+    id: 6,
     title: "CryptoForexBridge (CFX) — Forex Tokenization Platform",
     category: "DeFi Protocol",
     description:
@@ -88,7 +122,7 @@ const projects = [
     accentColor: "#F4C430",
   },
   {
-    id: 5,
+    id: 7,
     title: "Decentralized Supply Chain Tracker",
     category: "Supply Chain / Web3",
     description:
@@ -104,7 +138,7 @@ const projects = [
     accentColor: "#F4C430",
   },
   {
-    id: 6,
+    id: 8,
     title: "Olwist Token — Advanced ERC20",
     category: "Token / Smart Contracts",
     description:
@@ -120,7 +154,7 @@ const projects = [
     accentColor: "#00D4FF",
   },
   {
-    id: 7,
+    id: 9,
     title: "Go URL Shortener — REST API Service",
     category: "Backend / Go",
     description:
@@ -149,6 +183,8 @@ type FilterType =
   | "All"
   | "DeFi Protocol"
   | "KYC Platform"
+  | "Banking / Fintech"
+  | "Islamic Fintech"
   | "Telecom Platform"
   | "Cross-Chain Bridge"
   | "Supply Chain / Web3"
@@ -159,6 +195,8 @@ const filters: FilterType[] = [
   "All",
   "DeFi Protocol",
   "KYC Platform",
+  "Banking / Fintech",
+  "Islamic Fintech",
   "Telecom Platform",
   "Cross-Chain Bridge",
   "Supply Chain / Web3",
@@ -202,9 +240,9 @@ export default function ProjectsSection() {
             className="text-base max-w-2xl"
             style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Inter', sans-serif" }}
           >
-            Production projects spanning SaaS KYC platforms, telecom operations, full-stack systems,
-            cross-chain bridges, forex tokenization, and smart contracts — aligned with full-stack
-            and blockchain roles across KSA.
+            Production projects spanning SaaS KYC, core banking, Islamic Murabaha financing,
+            telecom operations, and full-stack backend systems — with additional blockchain and
+            smart contract work, aligned with roles across KSA.
           </p>
         </div>
 

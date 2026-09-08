@@ -1,22 +1,27 @@
 /* ============================================================
    DESIGN: Deep Ocean Protocol — Metrics Banner
    - Full-width stats strip between sections
-   - Animated counters on scroll
+   - Animated counters on scroll (count up from 0)
    - Teal/gold accent alternation
    ============================================================ */
 import { useEffect, useRef, useState } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const metrics = [
-  { value: 2, suffix: "+", label: "Years Experience", color: "#00D4FF" },
-  { value: 6, suffix: "", label: "Projects Built", color: "#F4C430" },
-  { value: 15, suffix: "+", label: "Smart Contracts Built", color: "#00D4FF" },
-  { value: 4, suffix: "", label: "Blockchain Networks", color: "#F4C430" },
-  { value: 2, suffix: "", label: "Live Products", color: "#00D4FF" },
-  { value: 2, suffix: "", label: "Mainnet Deployments", color: "#F4C430" },
+  { value: 5, suffix: "+", label: "Years Experience", color: "#00D4FF" },
+  { value: 9, suffix: "", label: "Projects Built", color: "#F4C430" },
+  { value: 5, suffix: "", label: "Live Products", color: "#00D4FF" },
+  { value: 30, suffix: "+", label: "REST APIs Built", color: "#F4C430" },
+  { value: 12, suffix: "+", label: "Technologies Used", color: "#00D4FF" },
+  { value: 15, suffix: "+", label: "Smart Contracts Built", color: "#F4C430" },
 ];
 
-function AnimatedCounter({ target, suffix, color, active }: {
+function AnimatedCounter({
+  target,
+  suffix,
+  color,
+  active,
+}: {
   target: number;
   suffix: string;
   color: string;
@@ -24,35 +29,45 @@ function AnimatedCounter({ target, suffix, color, active }: {
 }) {
   const [count, setCount] = useState(0);
   const started = useRef(false);
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (!active || started.current) return;
     started.current = true;
-    const duration = 1500;
-    const steps = 40;
-    const increment = target / steps;
-    let current = 0;
-    const interval = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        setCount(target);
-        clearInterval(interval);
+
+    const duration = 1600;
+    const startTime = performance.now();
+
+    const tick = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      // Ease-out so it feels live and settles cleanly
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(target * eased));
+      if (progress < 1) {
+        rafRef.current = requestAnimationFrame(tick);
       } else {
-        setCount(Math.floor(current));
+        setCount(target);
       }
-    }, duration / steps);
-    return () => clearInterval(interval);
+    };
+
+    setCount(0);
+    rafRef.current = requestAnimationFrame(tick);
+
+    return () => {
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+    };
   }, [active, target]);
 
   return (
     <span style={{ color }}>
-      {count}{suffix}
+      {count}
+      {suffix}
     </span>
   );
 }
 
 export default function MetricsBanner() {
-  const { ref, visible } = useScrollAnimation(0.3);
+  const { ref, visible } = useScrollAnimation(0.25);
 
   return (
     <div
@@ -65,7 +80,6 @@ export default function MetricsBanner() {
         backdropFilter: "blur(8px)",
       }}
     >
-      {/* Subtle grid pattern */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{

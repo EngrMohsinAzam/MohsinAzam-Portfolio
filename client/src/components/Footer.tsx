@@ -106,7 +106,7 @@ export default function Footer() {
             fontFamily: "'Inter', sans-serif",
           }}
         >
-          © {new Date().getFullYear()} Mohsin Azam · Full Stack & Blockchain Developer · Based in KSA
+          © {new Date().getFullYear()} Mohsin Azam · Full Stack & Backend Engineer · Riyadh, KSA
         </div>
       </div>
     </footer>

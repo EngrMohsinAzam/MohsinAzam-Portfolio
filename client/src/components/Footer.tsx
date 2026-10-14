@@ -4,7 +4,7 @@
    - Quick nav links + copyright
    ============================================================ */
 import { Github, Linkedin, Mail } from "lucide-react";
-import { WHATSAPP_HREF, openWhatsApp } from "@/config/site";
+import { WHATSAPP_HREF, WHATSAPP_NUMBERS, whatsAppHref, openWhatsApp } from "@/config/site";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 export default function Footer() {
@@ -98,8 +98,31 @@ export default function Footer() {
           </div>
         </div>
 
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          {WHATSAPP_NUMBERS.map(number => (
+            <a
+              key={number.phone}
+              href={whatsAppHref(number.phone)}
+              onClick={e => openWhatsApp(e, number.phone)}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Chat on WhatsApp at ${number.display}`}
+              className="flex items-center gap-2 rounded-lg px-3 py-2 text-xs sm:text-sm transition-colors duration-200 hover:text-white"
+              style={{
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(0,212,255,0.12)",
+                color: "rgba(255,255,255,0.6)",
+                fontFamily: "'Space Grotesk', sans-serif",
+              }}
+            >
+              <WhatsAppIcon size={14} style={{ color: "#25D366" }} />
+              {number.display}
+            </a>
+          ))}
+        </div>
+
         <div
-          className="mt-8 pt-6 text-center text-xs"
+          className="mt-6 pt-6 text-center text-xs"
           style={{
             borderTop: "1px solid rgba(255,255,255,0.05)",
             color: "rgba(255,255,255,0.25)",

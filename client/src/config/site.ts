@@ -18,6 +18,8 @@ export const RESUMES = [
 ] as const;
 
 export {
+  WHATSAPP_NUMBERS,
+  whatsAppHref,
   WHATSAPP_PHONE,
   WHATSAPP_DISPLAY,
   WHATSAPP_HREF,

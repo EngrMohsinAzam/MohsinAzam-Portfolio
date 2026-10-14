@@ -6,7 +6,7 @@
    ============================================================ */
 import { useState } from "react";
 import { Mail, MapPin, Send, Github, Linkedin, Clock } from "lucide-react";
-import { WHATSAPP_DISPLAY, WHATSAPP_HREF, openWhatsApp } from "@/config/site";
+import { WHATSAPP_NUMBERS, whatsAppHref, openWhatsApp } from "@/config/site";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 const contactInfo = [
@@ -16,13 +16,13 @@ const contactInfo = [
     value: "azammohsin816@gmail.com",
     href: "mailto:azammohsin816@gmail.com",
   },
-  {
+  ...WHATSAPP_NUMBERS.map((number, i) => ({
     icon: WhatsAppIcon,
-    label: "WhatsApp",
-    value: WHATSAPP_DISPLAY,
-    href: WHATSAPP_HREF,
-    onClick: openWhatsApp,
-  },
+    label: i === 0 ? "WhatsApp" : "WhatsApp (Alternate)",
+    value: number.display,
+    href: whatsAppHref(number.phone),
+    onClick: (e: React.MouseEvent) => openWhatsApp(e, number.phone),
+  })),
   {
     icon: MapPin,
     label: "Location",

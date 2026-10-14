@@ -1,14 +1,17 @@
-/** Digits only, country code included (no +) */
-export const WHATSAPP_PHONE = "923118363591";
+/** Digits only, country code included (no +). The first number is the primary contact. */
+export const WHATSAPP_NUMBERS = [
+  { phone: "966575207940", display: "+966 57 520 7940" },
+  { phone: "966550333196", display: "+966 55 033 3196" },
+] as const;
 
-export const WHATSAPP_DISPLAY = "+92 311 8363591";
+export const WHATSAPP_PHONE = WHATSAPP_NUMBERS[0].phone;
+
+export const WHATSAPP_DISPLAY = WHATSAPP_NUMBERS[0].display;
 
 /** Fallback / SEO href — WhatsApp redirects to app or web as available */
-export const WHATSAPP_HREF = `https://wa.me/${WHATSAPP_PHONE}`;
+export const whatsAppHref = (phone: string) => `https://wa.me/${phone}`;
 
-const APP_URL = `whatsapp://send?phone=${WHATSAPP_PHONE}`;
-const WEB_URL = `https://web.whatsapp.com/send?phone=${WHATSAPP_PHONE}`;
-const MOBILE_URL = `https://wa.me/${WHATSAPP_PHONE}`;
+export const WHATSAPP_HREF = whatsAppHref(WHATSAPP_PHONE);
 
 function isMobileDevice(): boolean {
   if (typeof navigator === "undefined") return false;
@@ -21,12 +24,15 @@ function isMobileDevice(): boolean {
  * Opens WhatsApp app when installed (desktop + mobile).
  * Falls back to WhatsApp Web if the app is not available.
  */
-export function openWhatsApp(e?: { preventDefault: () => void }) {
+export function openWhatsApp(
+  e?: { preventDefault: () => void },
+  phone: string = WHATSAPP_PHONE
+) {
   e?.preventDefault();
 
   // Mobile: wa.me opens the app if installed, otherwise WhatsApp Web / store flow
   if (isMobileDevice()) {
-    window.open(MOBILE_URL, "_blank", "noopener,noreferrer");
+    window.open(whatsAppHref(phone), "_blank", "noopener,noreferrer");
     return;
   }
 
@@ -40,7 +46,7 @@ export function openWhatsApp(e?: { preventDefault: () => void }) {
   document.addEventListener("visibilitychange", markOpened);
 
   const anchor = document.createElement("a");
-  anchor.href = APP_URL;
+  anchor.href = `whatsapp://send?phone=${phone}`;
   anchor.style.display = "none";
   document.body.appendChild(anchor);
   anchor.click();
@@ -52,7 +58,11 @@ export function openWhatsApp(e?: { preventDefault: () => void }) {
 
     // App did not take focus → open WhatsApp Web
     if (!appOpened && !document.hidden) {
-      window.open(WEB_URL, "_blank", "noopener,noreferrer");
+      window.open(
+        `https://web.whatsapp.com/send?phone=${phone}`,
+        "_blank",
+        "noopener,noreferrer"
+      );
     }
   }, 1500);
 }

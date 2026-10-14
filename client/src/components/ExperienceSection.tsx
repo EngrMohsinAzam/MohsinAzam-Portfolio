@@ -4,7 +4,7 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const companyLinks: Record<string, string> = {
-  Omnisoft: "https://kyc-platform-blush.vercel.app/",
+  Omnisoft: "https://digiportid.com/",
   "Banking Platform": "https://banking-plateform.vercel.app/",
   "Murabaha Engine": "https://murabaha-engine.vercel.app/login",
   TeleNexus: "https://tele-nexus.vercel.app/login",

@@ -36,7 +36,7 @@ const productionHighlights = [
   {
     title: "DigiPort KYC",
     desc: "SaaS Identity Verification Platform",
-    href: "https://kyc-platform-blush.vercel.app/",
+    href: "https://digiportid.com/",
     tag: "Live",
     accent: "#00D4FF",
   },

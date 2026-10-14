@@ -2,7 +2,7 @@
    DESIGN: Deep Ocean Protocol — Projects Section
    ============================================================ */
 import { useState } from "react";
-import { Github, ExternalLink, ChevronRight } from "lucide-react";
+import { Github, ExternalLink, ChevronRight, Server } from "lucide-react";
 
 const DEFI_IMG = "/projects/cfx-defi.jpg";
 const KYC_IMG = "/projects/digiport-kyc.jpg";
@@ -36,7 +36,8 @@ const projects = [
       "Live production deployment with multi-company KYC workflows",
     ],
     github: GITHUB_PROFILE,
-    live: "https://kyc-platform-blush.vercel.app/",
+    live: "https://digiportid.com/",
+    api: "https://api.digiportid.com/",
     networks: ["Ethereum", "EVM"],
     status: "Live" as const,
     accentColor: "#00D4FF",
@@ -350,8 +351,27 @@ export default function ProjectsSection() {
                         backdropFilter: "blur(8px)",
                       }}
                       aria-label={`${project.title} live demo`}
+                      title="Live site"
                     >
                       <ExternalLink size={14} />
+                    </a>
+                  )}
+                  {"api" in project && project.api && (
+                    <a
+                      href={project.api}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="touch-target rounded-lg transition-all duration-200 active:opacity-80"
+                      style={{
+                        background: "rgba(5,13,26,0.8)",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                        color: "rgba(255,255,255,0.7)",
+                        backdropFilter: "blur(8px)",
+                      }}
+                      aria-label={`${project.title} backend API`}
+                      title="Backend API"
+                    >
+                      <Server size={14} />
                     </a>
                   )}
                 </div>

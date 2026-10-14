@@ -7,7 +7,8 @@
    ============================================================ */
 import { useEffect, useState } from "react";
 import { Github, Linkedin, Mail, ChevronDown, ExternalLink } from "lucide-react";
-import { RESUME_URL, WHATSAPP_HREF, openWhatsApp } from "@/config/site";
+import { WHATSAPP_HREF, openWhatsApp } from "@/config/site";
+import { ResumeMenu } from "@/components/ResumeMenu";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { useTypewriter } from "@/hooks/useTypewriter";
 
@@ -269,12 +270,14 @@ export default function HeroSection() {
               >
                 View Projects
               </button>
-              <a
-                href={RESUME_URL}
-                className="btn-outline-teal px-7 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center justify-center w-full sm:w-auto min-h-[48px]"
-              >
-                Resume
-              </a>
+              <ResumeMenu align="start">
+                <button
+                  type="button"
+                  className="btn-outline-teal px-7 py-3.5 rounded-lg text-sm font-semibold inline-flex items-center justify-center w-full sm:w-auto min-h-[48px]"
+                >
+                  Resume
+                </button>
+              </ResumeMenu>
             </div>
 
             {/* Social links */}

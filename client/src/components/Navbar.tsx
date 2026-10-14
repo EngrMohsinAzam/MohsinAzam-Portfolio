@@ -4,7 +4,8 @@
    ============================================================ */
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { RESUME_URL, WHATSAPP_HREF, openWhatsApp } from "@/config/site";
+import { WHATSAPP_HREF, openWhatsApp } from "@/config/site";
+import { ResumeMenu } from "@/components/ResumeMenu";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -112,9 +113,11 @@ export default function Navbar() {
               );
             })}
           </div>
-          <a href={RESUME_URL} className="btn-teal navbar-resume-btn">
-            Resume
-          </a>
+          <ResumeMenu>
+            <button type="button" className="btn-teal navbar-resume-btn">
+              Resume
+            </button>
+          </ResumeMenu>
         </div>
 
         {/* Mobile — hamburger only */}
@@ -154,13 +157,11 @@ export default function Navbar() {
                 </button>
               );
             })}
-            <a
-              href={RESUME_URL}
-              className="btn-teal navbar-mobile-resume"
-              onClick={() => setMobileOpen(false)}
-            >
-              Download Resume
-            </a>
+            <ResumeMenu align="center" onSelect={() => setMobileOpen(false)}>
+              <button type="button" className="btn-teal navbar-mobile-resume">
+                Download Resume
+              </button>
+            </ResumeMenu>
             <div className="navbar-mobile-contact">
               <a href="mailto:azammohsin816@gmail.com">Email</a>
               <a href={WHATSAPP_HREF} onClick={openWhatsApp} target="_blank" rel="noopener noreferrer">

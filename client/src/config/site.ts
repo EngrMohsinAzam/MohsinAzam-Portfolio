@@ -3,12 +3,12 @@ export const RESUMES = [
   {
     label: "Full Stack Developer CV",
     description: "Golang · Node.js · Next.js · React",
-    url: "https://drive.google.com/uc?export=download&id=10TUXGR0aDbzv4MboYmMSIK-Cxo5ITCIJ",
+    url: "https://drive.google.com/uc?export=download&id=1vFCuUkKzhfDcxSvkGpsFjof6TTjC2eqT",
   },
   {
     label: "Backend Engineer CV",
     description: "Golang · Node.js · Microservices · APIs",
-    url: "https://drive.google.com/uc?export=download&id=1rMg_1hvcy5TX0VJr-VsHl9UKP7MYPhdj",
+    url: "https://drive.google.com/uc?export=download&id=12obxK2YaaU3e_3cYZKJQgHdFEOTob6Vi",
   },
   {
     label: "Blockchain Developer CV",
